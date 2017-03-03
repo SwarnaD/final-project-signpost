@@ -1,10 +1,10 @@
 ## Team Organization
 
 We have divided our team up into roles with respect to implementation:
-Frontend (AngularJS, HTML, CSS): Justin Mao
-Front/back Communication (AngularJS, Express): Frank Xie
-Backend (Express, Node.js): Selby Gomes, Joseph Lee
-Backend/DB (Express, Node.js, MongoDB): Adam Lee
+1. Frontend (AngularJS, HTML, CSS): Justin Mao
+2. Front/back Communication (AngularJS, Express): Frank Xie
+3. Backend (Express, Node.js): Selby Gomes, Joseph Lee
+4. Backend/DB (Express, Node.js, MongoDB): Adam Lee
 
 ## Decision Making
 
@@ -12,7 +12,13 @@ Our decisions thus far have been made through group consensus (there have been f
 
 ## Priority of User Stories
 
-We have not yet set up user stories, we plan to begin after the lecture on using Pivotal Tracker this coming Friday, March 3, 2017).
+Our user stories will use MoSCoW analysis to decide priority. Each story will be classified into:
+* M(ust)
+* S(hould)
+* C(ould)
+* W(on't)
+
+Within each classification, stories will be ranked by preference.
 
 ## Meetings
 
