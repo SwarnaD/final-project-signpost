@@ -2,6 +2,7 @@
 NOTE: The numerical series that we are using to estimate user stories are multiples of 2^x
 
 ### Anthony Rossman User Stories
+------
 
 Priority: 2
 Size: 1
