@@ -1,9 +1,14 @@
 ## Product Backlog
-NOTE: The numerical series that we are using to estimate user stories are multiples of 2^x
+NOTE: 
+Our user stories will use MoSCoW analysis to decide priority. Each story will be classified into:
+* M(ust)
+* S(hould)
+* C(ould)
+* W(on't)
 
 ### Anthony Rossman User Stories
 ======
-Priority: 2
+Priority: W
 
 Size: 1
 #### Story Narrative
@@ -12,7 +17,7 @@ As a club coordinator I want to be able to create a club so that it is visible t
 Given an idea to create a club when school starts then I want students interested in my club to view and join it until the school year ends.
 
 ======
-Priority: 4
+Priority: C
 
 Size: 1
 #### Story Narrative
@@ -22,7 +27,7 @@ Given any existing event for a user when a tag or club is blocked then notificat
 
 ======
 
-Priority: 16
+Priority: M
 
 Size: 4
 #### Story Narrative
@@ -32,7 +37,7 @@ Given a recently created club when the owner of the club wants moderate the club
 
 ### Alexa Jeong
 ======
-Priority: 4
+Priority: C
 
 Size: 2
 #### Story Narrative
@@ -41,7 +46,7 @@ As a person that hardly speaks English I want to find a medium so that I can joi
 Given an existing club when I join the club then I am part of the club and subscribed to a newsletter of their events.
 
 ======
-Priority: 4
+Priority: C
 
 Size: 1
 #### Story Narrative
@@ -50,7 +55,7 @@ As a person interested in the guitar and videogames I want to find like-minded i
 Given specific interest tags when they are searched for then clubs with the same tags will appear.
 
 ======
-Priority: 8
+Priority: S
 
 Size: 3
 #### Story Narrative
@@ -59,7 +64,7 @@ As a person interested in the guitar and videogames I want to find events for gu
 Given specific interest tags when they are linked with a club a user is in then similar events with similar tags will be autosuggested.
 
 ======
-Priority: 2
+Priority: W
 
 Size: 1
 #### Story Narrative
@@ -69,7 +74,7 @@ Given an event or suggested event when they are created then the notification fo
 
 ### Steve Zangada
 ======
-Priority: 8
+Priority: S
 
 Size: 2
 #### Story Narrative
@@ -78,7 +83,7 @@ As an event coordinator I want group members to see club events so that they are
 Given a new club event when an event is created then everyone part of the club will be notified.
 
 ======
-Priority: 8
+Priority: S
 
 Size: 2
 #### Story Narrative
@@ -87,7 +92,7 @@ As a event coordinator I want to have privacy settings for events so that events
 Given an event when it is created then privacy settings can be toggled which allow users to view or not view the event.
 
 ======
-Priority: 2
+Priority: W
 
 Size: 1
 #### Story Narrative
@@ -96,7 +101,7 @@ As a hiking enthusiast I want others to come hike so that we can hike together.
 Given an existing event when it is created then details such as date, time and location of the event are visible.
 
 ======
-Priority: 4
+Priority: C
 
 Size: 1
 #### Story Narrative
