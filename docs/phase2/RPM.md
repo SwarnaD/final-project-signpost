@@ -12,7 +12,7 @@ Time: Thursday, March 2, 2017 @ 10 AM
 MEAN: MongoDB, Express, AngularJS, Node.js
 
 **What are our project objectives?**
-See summary.md.
+See [summary.md](https://github.com/UTMCSC301/final-project-signpost/blob/master/docs/phase1/summary.md).
 
 **What features will we focus on implementing?**
 First we must implement user registration/authentication, group creation and
