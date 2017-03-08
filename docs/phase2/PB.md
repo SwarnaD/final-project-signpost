@@ -42,6 +42,16 @@ As a person that hardly speaks English I want to find a medium so that I can joi
 Given an existing club when I join the club then I am part of the club and subscribed to a newsletter of their events.
 
 ======
+Priority: 4
+
+Size: 2
+#### Story Narrative
+As an new to the community I want to be able search the area for a variety of clubs to join.
+#### Acceptance Criteria
+Given a new client when I go to the website, I can create an account to browse clubs.
+
+
+======
 Priority: 1
 
 Size: 1
@@ -104,5 +114,3 @@ Size: 1
 As a club member I want to spread an event so that others can join it with me.
 #### Acceptance Criteria
 Given an existing event when it is created then users can be invited to participate in the event.
-
-
