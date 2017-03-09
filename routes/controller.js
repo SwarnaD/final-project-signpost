@@ -25,10 +25,10 @@ app.controller('authController', function($scope){
 	$scope.error_message = '';
 
 	$scope.login = function(){
-		$scope.error_message = 'login request for ' + $scope.user.username;
+		$scope.error_message = 'Login username: ' + $scope.user.username;
 	};
 
 	$scope.register = function(){
-		$scope.error_message = 'registeration request for ' + $scope.user.username;
+		$scope.error_message = 'Registration username ' + $scope.user.username;
 	};
 });
