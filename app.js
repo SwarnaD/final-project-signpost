@@ -10,6 +10,7 @@ var clubs = require('./routes/clubs.js');
 var login = require('./routes/login.js');
 var profile = require('./routes/profile.js');
 
+var app = express();
 // View engine
 app.use(express.static(__dirname + '/'));
 
