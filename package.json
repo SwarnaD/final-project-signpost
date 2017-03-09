@@ -19,7 +19,7 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "express-validator": "^3.0.0",
-    "mongoose": "^4.7.0",
+    "mongoose": "^4.7.0"
   },
   "scripts": {
     "postinstall": "bower install",

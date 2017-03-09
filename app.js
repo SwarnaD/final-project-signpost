@@ -28,9 +28,9 @@ app.use(expressValidator({
 
         isStuEmail: function(value) {
             return value.search( /.+(@mail.utoronto.ca)/ ) !== -1;
-        },
+        }
 
-}));
+}}));
 
 app.get('/', function (req, res) {
   res.render('index.html');
