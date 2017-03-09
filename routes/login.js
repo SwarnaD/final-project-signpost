@@ -55,9 +55,7 @@ exports.addUser = function(req, res) {
         newUser.admin = false;
         // newUser.firstName = req.body.firstname;
         // newUser.lastName = req.body.lastname;
-        
-        
-        
+                
 
         // saves newUser into database
         newUser.save(function(err, savedUser) {

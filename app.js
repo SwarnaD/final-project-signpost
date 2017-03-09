@@ -30,7 +30,7 @@ app.use(expressValidator({
             return value.search( /.+(@mail.utoronto.ca)/ ) !== -1;
         },
 
-}));
+}}));
 
 app.get('/', function (req, res) {
   res.render('index.html');
