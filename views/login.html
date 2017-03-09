@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>SignPost</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+		<script src="./controller.js"></script>
+	</head>
+	<body ng-app="signpost">
+		<div id='main' class="container" ng-controller="authController">
+			<form class="form-auth" ng-submit="login()">
+				<h2>Login</h2>
+				<p class="text-warning"> {{error_message}}</p>
+				<input type="username" ng-model="user.username" placeholder="Username" class="form-control"></br>
+				<input type="password" ng-model="user.password" placeholder="Password" class="form-control"></br>
+				<input> type="sumbit" value="Login" class="btn btn-primany" />
+			</form>
+		</div>
+	</body>
+</html>	
