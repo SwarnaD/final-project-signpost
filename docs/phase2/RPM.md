@@ -2,7 +2,7 @@
 
 Scrum master: Dmitry Vasin
 
-Attendees: Adam Lee, Frank Xie, Joseph Lee, Justin Mao
+Attendees: Adam Lee, Frank Xie, Joseph Lee, Justin Mao, Selby Gomes
 
 Time: Thursday, March 2, 2017 @ 10 AM
 
