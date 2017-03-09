@@ -1,5 +1,11 @@
 # System Design
 
+## Table of Contents
+1. [CRC Cards](#crc-cards)
+2. [System-Environment Interaction](#system-environment-interaction)
+3. [System Architecture](#system-architecture)
+4. [System Decomposition](#system-decomposition)
+
 ## CRC Cards
 
 **User**
