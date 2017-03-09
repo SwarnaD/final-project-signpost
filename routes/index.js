@@ -1,6 +1,6 @@
 // GET request for homepage
 
-export.index = function(req, res) {
+exports.index = function(req, res) {
     res.render('index');
 };
 

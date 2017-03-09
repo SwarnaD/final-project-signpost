@@ -15,7 +15,7 @@ var userSchema = new Schema (
             type: String, required: true
         },
         systemAdmin: {
-            type: boolean, required: true
+            type: Boolean, required: true
         },
         firstName: {
             type: String, required: false
@@ -47,21 +47,21 @@ var userSchema = new Schema (
 // Club Schema
 var clubSchema = new Schema(
     {
-		clubname: {
-			type: String, required: true
-		},
-		admins: {
-			type: [String], required: true
-		},
-		events: {
-			type: [String], required: false
-		},
-		blacklisted: {
-			type: [String], required: true
-		},
-		tags: {
-			type: [String], required: true
-		},
+    		clubname: {
+    			type: String, required: true
+    		},
+    		admins: {
+    			type: [String], required: true
+    		},
+    		events: {
+    			type: [String], required: false
+    		},
+    		blacklisted: {
+    			type: [String], required: true
+    		},
+    		tags: {
+    			type: [String], required: true
+    		},
     },
     {
             collection: "clubs"
@@ -78,17 +78,18 @@ var eventSchema = new Schema (
         },
         clubHost: {
             type: [String], required: true
-        }
+        },
         campus: {
             type: [String], required: true
-        }
-		tags: {
-			type: [String], required: true
-		},
+        },
+    		tags: {
+    	      type: [String], required: true
+    		},
     },
     {
             collection: "events"
     }
+)
 // Doc for Mongoose Connections: http://mongoosejs.com/docs/connections
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://user1:abc123@ds119578.mlab.com:19578/w3cool');
@@ -99,6 +100,6 @@ var events = mongoose.model('event', eventSchema);
 
 module.exports = {
     users: users,
-    clubs: clubs
+    clubs: clubs,
     events: events
 };

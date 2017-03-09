@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path');
 var expressValidator = require('express-validator');
 
 // Reference to routes
@@ -12,7 +13,7 @@ var profile = require('./routes/profile.js');
 
 var app = express();
 // View engine
-app.use(express.static(__dirname + '/'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // The request body is received on GET or POST.
 // A middleware that just simplifies things a bit.
@@ -46,13 +47,13 @@ app.post('/login', login.signin); // User sign in
 
 app.get('/logout', login.signout); // User sign out
 
-app.post('/clubs', club.addClub); // Add a club
-app.put('/clubs', club.editClub); // Edit club details
-app.get('/clubs', clubs.searchClubs); // Search for clubs
+app.post('/clubs', clubs.addClub); // Add a club
+app.put('/clubs', clubs.editClub); // Edit club details
+app.get('/clubs', clubs.searchClub); // Search for clubs
 app.delete('/clubs', clubs.deleteClub); // Delete a club
 
 app.get('/profile', profile.addProfile);  // Add a user profile
 app.get('/profile', profile.editProfile); // Edit profile attributes
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
 console.log('Listening on port 3000');

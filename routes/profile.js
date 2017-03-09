@@ -29,7 +29,7 @@ exports.profile = function(req, res) {
                         username: user.username,
                         firstname: user.firstName,
                         lastname: user.lastName
-                        
+
                     });
                 }
 
@@ -37,6 +37,14 @@ exports.profile = function(req, res) {
         }
         }
 
+
+}
+
+exports.addProfile = function(req, res) {
+
+}
+
+exports.editProfile = function(req, res) {
 
 }
 
@@ -65,7 +73,7 @@ exports.updateInfo = function(req, res) {
      var data = req.body.data;
 
      model.users.findOne({username: req.params.username}, function(err, user){
-  
+
         if (value == "firstName"){
             user.firstName = data;
         }else if (value == 'lastname'){
