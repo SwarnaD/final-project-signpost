@@ -18,25 +18,25 @@ var userSchema = new Schema (
             type: boolean, required: true
         },
         firstName: {
-            type: String
+            type: String, required: false
         },
         lastName: {
-            type: String
+            type: String, required: false
         },
         tags: {
-            type: [String]
+            type: [String], required: false
         },
         blacklistedTags: {
-            type: [String]
+            type: [String], required: false
         },
         clubs: {
-            type: [String]
+            type: [String], required: false
         },
         blacklistedClubs: {
-            type: [String]
+            type: [String], required: false
         },
-        campus: {
-            type: String
+        blacklistedCampus: {
+            type: [String], required: false
         },
     },
     {
@@ -53,33 +53,49 @@ var clubSchema = new Schema(
 		admins: {
 			type: [String], required: true
 		},
+		events: {
+			type: [String], required: false
+		},
 		blacklisted: {
 			type: [String], required: true
 		},
-		eventSchema: {
-			eventtime: {
-				type: Date, required: true
-			},
-			place: {
-				type: String, required: true
-			},
+		tags: {
+			type: [String], required: true
 		},
-		{
-				collection: "events"
-		}
     },
     {
             collection: "clubs"
     }
 )
 
+var eventSchema = new Schema (
+    {
+        eventtime: {
+            type: Date, required: true
+        },
+        place: {
+            type: String, required: true
+        },
+        clubHost: {
+            type: [String], required: true
+        }
+        campus: {
+            type: [String], required: true
+        }
+		tags: {
+			type: [String], required: true
+		},
+    },
+    {
+            collection: "events"
+    }
 // Doc for Mongoose Connections: http://mongoosejs.com/docs/connections
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://user1:abc123@ds119578.mlab.com:19578/w3cool');
 
 var users = mongoose.model('user', userSchema);
 var clubs = mongoose.model('club', clubSchema);
-var events = mongoose.model('event', clubScheme.eventSchema);
+var events = mongoose.model('event', eventSchema);
 
 module.exports = {
     users: users,
