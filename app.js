@@ -34,11 +34,11 @@ app.use(expressValidator({
 }}));
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  res.render('index');
 });
 
 app.get('/login', function(req,res) {
-    res.render('login.html');
+    res.render('login');
 });
 
 //API URLS
