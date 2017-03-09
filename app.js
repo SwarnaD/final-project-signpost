@@ -42,6 +42,7 @@ app.get('/login', function(req,res) {
 
 //API URLS
 app.post('/login', login.addUser);
+app.post('/clubs', club.addClub)
 app.get('/clubs', clubs.searchClubs);
 app.post('/login', login.signin);
 app.get('/logout', login.signout);
