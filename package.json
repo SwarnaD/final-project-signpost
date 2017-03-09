@@ -14,7 +14,12 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^4.0.9"
+    "protractor": "^4.0.9",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "express-validator": "^3.0.0",
+    "mongoose": "^4.7.0",
   },
   "scripts": {
     "postinstall": "bower install",
@@ -23,7 +28,7 @@
     "postupdate-deps": "bower update",
 
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./views",
+    "start": "node ./app.js",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
