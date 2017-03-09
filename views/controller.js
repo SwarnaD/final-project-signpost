@@ -4,8 +4,8 @@ app.config(function($routeProvider){
 	$routeProvider
 		//the timeline display
 		.when('/', {
-			templateUrl: 'login.html',
-			controller: 'testController'
+			templateUrl: 'register.html',
+			controller: 'authController'
 		})
 		//the login display
 		.when('/login', {
