@@ -17,14 +17,12 @@ exports.addUser = function(req, res) {
     // req.checkBody('firstname', '*First name is required.').notEmpty();
     // req.checkBody('lastname', '*Last name is required.').notEmpty();
 
-
-
     // captures and maps validation errors
     var errors = req.validationErrors();
     var mappedErrors = req.validationErrors(true);
 
     console.log(errors);
-
+    alert('asd');
     if (errors) { // ***Validation Fails***
 
         // stores error messages per body parameter

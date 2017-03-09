@@ -5,6 +5,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
+var passport = require('passport');  //Node js middleware (for authentication)
+var LocalStrategy = require('passport-local').Strategy;
 
 // Reference to routes
 var clubs = require('./routes/clubs.js');
@@ -14,6 +16,9 @@ var profile = require('./routes/profile.js');
 var app = express();
 // View engine
 app.use(express.static(path.join(__dirname, 'views')));
+
+var authenticate = require('./routes/authenticate')(passport);
+app.use('/auth', authenticate); 
 
 // The request body is received on GET or POST.
 // A middleware that just simplifies things a bit.
@@ -40,6 +45,10 @@ app.get('/', function (req, res) {
 app.get('/login', function(req,res) {
     res.render('login');
 });
+
+
+var initPassport = require('./passport-init');
+initPassport(passport);
 
 //API URLS
 app.post('/login', login.addUser); // Add a user
