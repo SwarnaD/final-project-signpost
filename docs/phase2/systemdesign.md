@@ -78,5 +78,9 @@ Our application is built using a MEAN (MongoDB, Express, AngularJS, Node.js) sta
 * [AngularJS](https://angularjs.org/) (views): Forward user events to the request handler. Receive information from controllers, update views.
 * [Node.js](https://nodejs.org/) (server): Host the application, service incoming requests.
 
+![Diagram][diagram]
+
+[diagram]: sysarch.png
+
 ## System Decomposition
 Events trigged by users are serviced by our server (Node.js) by routing through an API handler (Express) that communicates with controllers which then retrieve information from and/or update the database (if necessary), subsequently routing to and/or updating views for the users. Views are styled and presented using templates, incorporating any scripts or media if necessary. Anticipated invalid events should trigger appropriate error-handling views, providing as much information to the user as necessary. Unanticipated invalid events should trigger generic error landings.
