@@ -1,11 +1,11 @@
-var model = require('../models/models.js');
+var model = require('../models/schema.js');
 
 exports.addUser = function(req, res) {
 
     //Input Validation
     req.checkBody('confirm', '*Password does not match.').equals(req.body.password);
-    
-    
+
+
     req.checkBody('username', '*Username must be alphanumeric with 5 to 15 characters.').isAlphanumeric().isLength({min: 5, max: 15});
     req.checkBody('password', '*Password must be alphanumeric with 5 to 15 characters.').isAlphanumeric().isLength({min: 5, max: 15});
     req.checkBody('confirm', '*Must be alphanumeric with 5 to 15 characters.').isAlphanumeric().isLength({min: 5, max: 15});
@@ -16,8 +16,8 @@ exports.addUser = function(req, res) {
     req.checkBody('confirm', '*Please confirm password.').notEmpty();
     // req.checkBody('firstname', '*First name is required.').notEmpty();
     // req.checkBody('lastname', '*Last name is required.').notEmpty();
-    
-    
+
+
 
     // captures and maps validation errors
     var errors = req.validationErrors();
@@ -39,7 +39,7 @@ exports.addUser = function(req, res) {
         if (mappedErrors.confirm) {
             errorMsgs.errors.error_confirm = mappedErrors.confirm.msg;
         };
-        
+
         // sends back error data
         console.log(errorMsgs.errors);
         res.json(errorMsgs);
@@ -55,7 +55,7 @@ exports.addUser = function(req, res) {
         newUser.admin = false;
         // newUser.firstName = req.body.firstname;
         // newUser.lastName = req.body.lastname;
-                
+
 
         // saves newUser into database
         newUser.save(function(err, savedUser) {

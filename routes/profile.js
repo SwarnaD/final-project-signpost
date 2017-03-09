@@ -1,4 +1,4 @@
-var model = require('../models/models.js');
+var model = require('../models/schema.js');
 
 exports.profile = function(req, res) {
     if (!req.session.user){
