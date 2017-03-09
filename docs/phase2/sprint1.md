@@ -8,12 +8,12 @@ Time: Friday, March 3, 2017 @ 4 PM
 
 ## Issues Considered
 
-**How should we begin implementation?**
+**How should we begin implementation?**  
 We will implement features step by step by which a potential user might use, so that we can better visualize our process.
 
 In particular, we must first setup the skeleton of the code we will write, installing any needed dependencies.
 
-**What user stories will we implement during this sprint?**
+**What user stories will we implement during this sprint?**  
 See [sprint backlog](#sprint-backlog).
 
 ## Sprint backlog
