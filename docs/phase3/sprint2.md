@@ -19,6 +19,9 @@ Refactor our structure and develop adhering to convention.
 
 ## Sprint backlog
 
+### Chores
+* Adam/Joseph will update the product backlog.
+
 ### User Stories
 
 **Account Creation / Login**
