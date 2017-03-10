@@ -28,8 +28,7 @@ Refactor our structure and develop adhering to convention.
 * Points: 5
 * As an student new to the community I want to be able search the area for a variety of clubs to join.
 * Breakdown:
-  - Routes/Model: Adam Lee
-  - Controllers/Styling/Templates/Views: Justin Mao
+  - Routes/Model/Controllers/Styling/Templates/Views: Justin Mao
 
 **Group Creation**
 * Points: 5
