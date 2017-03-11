@@ -2,7 +2,7 @@
 
 Scrum master:  Justin Mao
 
-Attendees: Adam Lee, Frank Xie, Joseph Lee, Selby Gomes
+Attendees: Adam Lee, Frank Xie (remote), Joseph Lee, Selby Gomes
 
 Time: Thursday, March 10, 2017 @ 12 PM
 
