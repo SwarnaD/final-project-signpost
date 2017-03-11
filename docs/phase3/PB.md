@@ -4,7 +4,7 @@ Our user stories will go from a scale of 0-5 then jump to 8 depending on the pri
 
 ### Anthony Rossman User Stories
 ======
-Priority: 5
+Priority: 1
 
 Size: 1
 #### Story Narrative
@@ -52,7 +52,7 @@ Given a new client when I go to the website, I can create an account to browse c
 
 
 ======
-Priority: 1
+Priority: 2
 
 Size: 1
 #### Story Narrative
@@ -70,7 +70,7 @@ As a person interested in the guitar and videogames I want to find events for gu
 Given specific interest tags when they are linked with a club a user is in then similar events with similar tags will be auto suggested.
 
 ======
-Priority: 0
+Priority: 1
 
 Size: 1
 #### Story Narrative
