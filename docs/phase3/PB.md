@@ -1,6 +1,6 @@
 ## Product Backlog
 NOTE: 
-Our user stories will go from a scale of 0-5 then jump to 8 depending on the priority
+Our user stories will go from a scale of 0-3 then 5 then jump to 8 depending on the priority
 
 ### Anthony Rossman User Stories
 ======
@@ -23,7 +23,7 @@ Given any existing event for a user when a tag or club is blocked then notificat
 
 ======
 
-Priority: 4
+Priority: 5
 
 Size: 5
 #### Story Narrative
