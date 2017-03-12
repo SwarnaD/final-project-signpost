@@ -18,10 +18,9 @@ router.get('/', function(req, res) {
 
 router.route('/auth')
   .post(function(req, res) {
-    let password = req.body.password;
-    User.findOne({ 'email': req.body.email }, function(err) {
+    User.findOne({ 'email': req.body.email }, 'password', function(err, user) {
       if (err) res.send(err);
-      if (User.password === req.body.password) {
+      if (user.password === req.body.password) {
         res.json({
           status: 200,
           body: { token: "jwttokenplaceholder" }  // TODO: write token generator
@@ -39,6 +38,7 @@ router.route('/users')
     var user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
+    user.password = req.body.password;
     user.save(function(err) {
       if (err) res.send(err);
       res.json({ message: 'User created!' });
