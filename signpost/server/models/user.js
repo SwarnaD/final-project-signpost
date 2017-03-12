@@ -11,7 +11,6 @@ userSchema.static('findByName', function (name, callback) {
   return this.find({ name: name }, callback);
 });
 
-
 var User = mongoose.model('User', userSchema);
 
 

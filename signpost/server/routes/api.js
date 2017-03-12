@@ -16,6 +16,24 @@ router.get('/', function(req, res) {
   res.json({ message: "The API works!"});
 });
 
+router.route('/auth')
+  .post(function(req, res) {
+    let password = req.body.password;
+    User.findOne({ 'email': req.body.email }, function(err) {
+      if (err) res.send(err);
+      if (User.password === req.body.password) {
+        res.json({
+          status: 200,
+          body: { token: "jwttokenplaceholder" }  // TODO: write token generator
+        });
+      } else {
+        res.json({
+          status: 200
+        });
+      }
+    });
+  });
+
 router.route('/users')
   .post(function(req, res) {
     var user = new User();
@@ -29,8 +47,12 @@ router.route('/users')
   .get(function(req, res) {
     User.find(function(err, users) {
       if (err) res.send(err);
-      res.json(users);
-    })
+      if (req.header('token') === 'jwttokenplaceholder') {  // TODO: write token generator
+        res.json(users);
+      } else {
+        res.json({ status: 401 }); // TODO: send proper error status
+      }
+    });
   });
 
 router.route('/users/:name')
@@ -54,7 +76,7 @@ router.route('/users/:name')
             });
 
         });
-    
+
   })
   .get(function(req, res) {
     User.findByName(req.params.name, function(err, user) {
@@ -117,7 +139,7 @@ router.route('/groups/:name')
             });
 
         });
-    
+
   })
   .get(function(req, res) {
     Group.findByName(req.params.name, function(err, group) {
@@ -183,7 +205,7 @@ router.route('/events/:name')
             });
 
         });
-    
+
   })
   .get(function(req, res) {
     Event.findByName(req.params.name, function(err, event) {

@@ -12,7 +12,7 @@ export class UserService {
   constructor(http: Http, authService: AuthService) { }
 
   getUsers(): Observable<User[]> {
-    let headers = new Headers({ 'Authorization': 'Bearer ' + this.authService.token });
+    let headers = new Headers({ 'authToken': this.authService.token });
     let options = new RequestOptions({ headers: headers });
     return this.http.get('/api/users', options)
       .map((response: Reponse) => response.json());
