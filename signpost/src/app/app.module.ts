@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 import { UserListService } from './user-list.service';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 // this is a very ghetto way to do this, sorry
 var ROUTES = [
@@ -20,7 +22,9 @@ var ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
