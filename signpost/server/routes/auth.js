@@ -6,7 +6,7 @@ router.route('/auth')
   .post(function(req, res) {
     User.findOne({ 'email': req.body.email }, function(err, user) {
       if (err) res.send(err);
-      if (user.password === req.body.password) {
+      if (user.checkPassword(req.body.password)) {
         var token = jwt.sign(user, 'placeholdersecret');  // TODO: write a local saved secret at some point
         res.json({
           status: 200,

@@ -7,10 +7,10 @@ router.route('/users')
     var user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
-    user.password = req.body.password;
+    user.password = user.sha512(req.body.password);
     user.save(function(err) {
       if (err) res.send(err);
-      res.json({ message: 'User created!' });
+      res.json({ message: 'User created!' }); // TODO: should probably log in automatically
     });
   })
   .get(function(req, res) {

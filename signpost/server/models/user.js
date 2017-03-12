@@ -26,7 +26,12 @@ userSchema.methods.sha512 = function(password) {
   return value;
 }
 
-var User = mongoose.model('User', userSchema);
+userSchema.methods.checkPassword = function(password) {
+  if (this.password === this.sha512(password)) {
+    return true;
+  }
+}
 
+var User = mongoose.model('User', userSchema);
 
 module.exports = User;
