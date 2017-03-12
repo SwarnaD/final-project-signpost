@@ -8,6 +8,7 @@ router.route('/users')
     user.name = req.body.name;
     user.email = req.body.email;
     user.password = user.sha512(req.body.password);
+    user.salt = user.generateSalt();  // This could probably be done automatically
     user.save(function(err) {
       if (err) res.send(err);
       res.json({ message: 'User created!' }); // TODO: should probably log in automatically
