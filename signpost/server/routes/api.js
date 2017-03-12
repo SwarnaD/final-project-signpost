@@ -7,6 +7,8 @@ var Event = require('../models/event');
 var express = require('express');
 var router = express.Router();
 
+var jwt = require('jsonwebtoken');
+
 router.use(function(req, res, next) {
   console.log('Something is happening!');
   next();
@@ -18,12 +20,13 @@ router.get('/', function(req, res) {
 
 router.route('/auth')
   .post(function(req, res) {
-    User.findOne({ 'email': req.body.email }, 'password', function(err, user) {
+    User.findOne({ 'email': req.body.email }, function(err, user) {
       if (err) res.send(err);
       if (user.password === req.body.password) {
+        var token = jwt.sign(user, 'placeholdersecret');  // TODO: write a local saved secret at some point
         res.json({
           status: 200,
-          body: { token: "jwttokenplaceholder" }  // TODO: write token generator
+          body: { token: token }
         });
       } else {
         res.json({
@@ -47,9 +50,10 @@ router.route('/users')
   .get(function(req, res) {
     User.find(function(err, users) {
       if (err) res.send(err);
-      if (req.header('token') === 'jwttokenplaceholder') {  // TODO: write token generator
+      try {
+        jwt.verify(req.header('token'), 'placeholdersecret') // TODO: write a local saved secret at some point
         res.json(users);
-      } else {
+      } catch(err) {
         res.json({ status: 401 }); // TODO: send proper error status
       }
     });
