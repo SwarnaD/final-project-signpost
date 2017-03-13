@@ -6,7 +6,7 @@ var userSchema = new Schema({
   name: String, // we should update this to have first/last fields
   email: String,
   password: String,
-  salt: String;
+  salt: String
 })
 
 userSchema.static('findByName', function (name, callback) {
@@ -20,10 +20,8 @@ userSchema.methods.generateSalt = function(length) {
 }
 
 userSchema.methods.sha512 = function(password) {
-  var hash = crypto.createHmac('sha512', this.salt);
-  hash.update(password);
-  var value = hash.digest('hex');
-  return value;
+  var hash = crypto.createHmac('sha512', this.salt).update(password).digest('hex');
+  return hash;
 }
 
 userSchema.methods.checkPassword = function(password) {

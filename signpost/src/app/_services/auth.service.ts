@@ -12,12 +12,13 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-  login(email: String, password: String): Observable<Boolean> {
+  login(email, password): Observable<Boolean> {
     return this.http.post('/api/auth', JSON.stringify({ email: email, password: password}))
       .map((response: Response) => {
         let token = response.json() && response.json().token;
         if (token) {
           this.token = token;
+          console.log('token received: ', this.token);
           localStorage.setItem('userSession', JSON.stringify({ email: email, token: token}));
           return true;
         } else {

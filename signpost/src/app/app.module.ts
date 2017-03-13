@@ -5,24 +5,31 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
 
-import { UserListService } from './user-list.service';
+import { AuthGuard } from './_guards/auth.guard'
+
+import { AuthService } from './_services/auth.service'
+import { UserService } from './_services/user.service'
+
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 // this is a very ghetto way to do this, sorry
 var ROUTES = [
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
-    component: UserListComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
     LoginComponent,
     HomeComponent
   ],
@@ -32,7 +39,11 @@ var ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [UserListService],
+  providers: [
+    AuthGuard,
+    AuthService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

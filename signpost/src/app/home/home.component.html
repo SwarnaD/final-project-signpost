@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<h1>Home</h1>
+<p>You're logged in with JWT!!</p>
+<div>
+    Users from secure api end point:
+    <ul>
+        <li *ngFor="let user of users">{{ user.email }}</li>
+    </ul>
+</div>
+<p><a [routerLink]="['/login']">Logout</a></p>

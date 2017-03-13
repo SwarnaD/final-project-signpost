@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../_services/auth.service';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +10,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  model: User = { email: "nothing", password: "nothing", name: "nothing" };
+  error = '';
+  email: String = "asdf";
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService) {
+  }
 
   ngOnInit() {
+    //this.authService.logout();  // currently will log the user out on init for testing
+  }
+
+  login() {
+    console.log('you submitted email: ', this.model.email);
+    console.log('you submitted password: ', this.model.password);
+    this.authService.login(this.model.email, this.model.password).subscribe(result => {
+      if (result === true) {
+        this.router.navigate(['/']);
+      } else {
+        this.error = 'Email or password is incorrect';
+      }
+    })
   }
 
 }
