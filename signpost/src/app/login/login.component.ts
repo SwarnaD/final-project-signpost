@@ -24,9 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('you submitted email: ', this.model.email);
-    console.log('you submitted password: ', this.model.password);
     this.authService.login(this.model.email, this.model.password).subscribe(result => {
+      console.log(result);
       if (result === true) {
         this.router.navigate(['/']);
       } else {

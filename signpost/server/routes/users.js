@@ -1,6 +1,7 @@
 var User = require('../models/user');
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 router.route('/users')
   .post(function(req, res) {
@@ -18,7 +19,8 @@ router.route('/users')
     User.find(function(err, users) {
       if (err) res.send(err);
       try {
-        jwt.verify(req.header('token'), 'placeholdersecret') // TODO: write a local saved secret at some point
+        console.log(req.header('token'));
+        jwt.verify(req.header('token'), 'placeholdersecret'); // TODO: write a local saved secret at some point
         res.json(users);
       } catch(err) {
         res.json({ status: 401 }); // TODO: send proper error status

@@ -16,9 +16,14 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     let headers = new Headers({ 'token': this.authService.token });
+    console.log(this.authService.token);
     let options = new RequestOptions({ headers: headers });
     return this.http.get('/api/users', options)
-      .map((response: Response) => response.json());
+      .map((response: Response) => {
+        let users = response.json();
+        console.log(users);
+        return users;
+      });
   }
 
 }

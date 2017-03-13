@@ -13,18 +13,21 @@ export class AuthService {
   }
 
   login(email, password): Observable<Boolean> {
-    return this.http.post('/api/auth', JSON.stringify({ email: email, password: password}))
+    var request = {
+      'email': email,
+      'password': password
+    }
+    return this.http.post('/api/auth', request)
       .map((response: Response) => {
-        let token = response.json() && response.json().token;
-        if (token) {
-          this.token = token;
-          console.log('token received: ', this.token);
-          localStorage.setItem('userSession', JSON.stringify({ email: email, token: token}));
+        let success = response.json() && response.json().body.token;
+        this.token = response.json().body.token;
+        if (success) {
+          localStorage.setItem('userSession', JSON.stringify({ 'email': email, 'token': this.token}));
           return true;
         } else {
           return false;
         }
-      })
+      });
   }
 
   logout(): void {
