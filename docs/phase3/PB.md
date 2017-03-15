@@ -8,18 +8,18 @@ Priority: 1
 
 Size: 1
 #### Story Narrative
-As a club coordinator I want to be able to create a club so that it is visible to the students of UofT until the academic semester ends.
+As a group coordinator I want to be able to advertise group events in a manner that allows me to reach out to potentially interested students at UofT.
 #### Acceptance Criteria
-Given an idea to create a club when school starts then I want students interested in my club to view and join it until the school year ends.
+Given that I am an administrating member of a group at UofT, I can post events and information and have it reach students likely to be interested.
 
 ======
 Priority: 1
 
 Size: 1
 #### Story Narrative
-As a sailing aficionado I want to blacklist certain events so that I only view sailing related events.
+As someone who has no interest in certain topics, I want to be able to blacklist topics so that I do not see any events related to them.
 #### Acceptance Criteria
-Given any existing event for a user when a tag or club is blocked then notifications for any events from them are blocked.
+Given that I do not want to see events from certain topics or groups, I can blacklist them so they no longer show up on my feed. I can also manage this blacklist.
 
 ======
 
@@ -27,9 +27,9 @@ Priority: 5
 
 Size: 5
 #### Story Narrative
-As a person that wants to create a sailing club I want to create a sailing club so that I can administrate it along with the members in the club.
+As an administrating member of a group that wants to increase its social media presence, I want to create a profile for the group that I and other administrating members can manage.
 #### Acceptance Criteria
-Given a recently created club when the owner of the club wants moderate the club then they can set up the tags, events and blacklist individuals from the club.
+Administrating members of a group should be able to create a page for the group that lists the group's primary tags (topics), as well as invite other members to help manage the page.
 
 ### Alexa Jeong
 ======
@@ -37,18 +37,18 @@ Priority: 5
 
 Size: 5
 #### Story Narrative
-As a person that hardly speaks English I want to find a medium so that I can join in extracurricular activities to make new friends.
+As a person that does not fluently speak English, I want to be able to find and join in on extracurricular activities consistently with the same group without fearing miscommunication.
 #### Acceptance Criteria
-Given an existing club when I join the club then I am part of the club and subscribed to a newsletter of their events.
+Given that I see groups posting events, I want to be able to subscribe to the group so that I see all the events that they post, regardless of the event's tags.
 
 ======
 Priority: 5
 
 Size: 1
 #### Story Narrative
-As a new to the community I want to be able search the area for a variety of clubs to join.
+As a student new to the community, I want to be able to browse events that I might be interested so that I can go out and do things I want to do without knowing anyone beforehand.
 #### Acceptance Criteria
-Given a new client when I go to the website, I can create an account to browse clubs.
+New users should be able to create accounts and add tags (interests) so that they can receive a feed of events pertaining to those interests.
 
 
 ======
@@ -56,27 +56,18 @@ Priority: 2
 
 Size: 1
 #### Story Narrative
-As a person interested in the guitar and videogames I want to find like-minded individuals so that we can play the guitar and videogames.
+As a student at UTM who lives in downtown Toronto, I want to be able to find events at UTSG so that I can attend them without looking for flyers on the UTSG campus.
 #### Acceptance Criteria
-Given specific interest tags when they are searched for then clubs with the same tags will appear.
+Users should be able to specify which campuses they would like to receive feeds from.
 
 ======
 Priority: 2
 
 Size: 3
 #### Story Narrative
-As a person interested in the guitar and videogames I want to find events for guitar and videogames so that I can join an event and have fun.
+As a person who plays guitar, I want to find events related to all forms of music so that I can expand my musical horizons.
 #### Acceptance Criteria
-Given specific interest tags when they are linked with a club a user is in then similar events with similar tags will be auto suggested.
-
-======
-Priority: 1
-
-Size: 1
-#### Story Narrative
-As a student uninterested in specific events I want to hide notifications so that some events aren't notified to me.
-#### Acceptance Criteria
-Given an event or suggested event when they are created then the notification for the events coming from a tag can be toggled on or off.
+Interests should not be matched on a string-to-string basis, rather they should incorporate some sort of lexiconal expansion.
 
 ### Steve Zangada
 ======
@@ -84,33 +75,33 @@ Priority: 2
 
 Size: 2
 #### Story Narrative
-As an event coordinator I want group members to see club events so that they are notified.
+As an event coordinator, I want my group members to be notified when events are posted so I can manage my events on this platform solely.
 #### Acceptance Criteria
-Given a new club event when an event is created then everyone part of the club will be notified.
+Users should be able to subscribe to groups (perhaps join as a member) so that they receive a feed from groups that they are a part of. 
 
 ======
 Priority: 2
 
 Size: 2
 #### Story Narrative
-As a event coordinator I want to have privacy settings for events so that events can be private or public.
+As an event coordinator, I want to be able to set privacy settings for events so that I can manage who sees my event.
 #### Acceptance Criteria
-Given an event when it is created then privacy settings can be toggled which allow users to view or not view the event.
+Events should be created with settings that specify who the event is shown to, who is able to see the event, and whether or not invitees can invite others if the event is private.
 
 ======
 Priority: 5
 
 Size: 5
 #### Story Narrative
-As a hiking enthusiast I want others to come hike so that we can hike together.
+As an event coordinator, I want people to see details about my event, so that they are able to attend without further instruction.
 #### Acceptance Criteria
-Given an existing event when it is created then details such as date, time and location of the event are visible.
+Events should be created with as much detail as possible, including name, time, location, description, and any of these details should be able to be edited.
 
 ======
 Priority: 1
 
 Size: 1
 #### Story Narrative
-As a club member I want to spread an event so that others can join it with me.
+As a group member, I want to be able to share events on other social media so that people not on the platform can join me.
 #### Acceptance Criteria
-Given an existing event when it is created then users can be invited to participate in the event.
+Events should have permalinks that non-registered users should be able to view.
