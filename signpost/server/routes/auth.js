@@ -22,8 +22,9 @@ router.route('/auth')
           });
         }
       } catch (err) {
-        console.log('Password: ' + user.password);
-        console.log('Salt: ' + user.salt);
+        // console.log('Password: ' + user.password);
+        // console.log('Salt: ' + user.salt);
+        console.log(err);
       }
     });
   });
