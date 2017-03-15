@@ -4,6 +4,7 @@ Our user stories will go from a scale of 0-3 then 5 then jump to 8 depending on 
 
 ### Anthony Rossman User Stories
 ======
+
 Priority: 1
 
 Size: 1
@@ -13,6 +14,7 @@ As a group coordinator I want to be able to advertise group events in a manner t
 Given that I am an administrating member of a group at UofT, I can post events and information and have it reach students likely to be interested.
 
 ======
+
 Priority: 1
 
 Size: 1
@@ -33,6 +35,7 @@ Administrating members of a group should be able to create a page for the group 
 
 ### Alexa Jeong
 ======
+
 Priority: 5
 
 Size: 5
@@ -42,6 +45,7 @@ As a person that does not fluently speak English, I want to be able to find and 
 Given that I see groups posting events, I want to be able to subscribe to the group so that I see all the events that they post, regardless of the event's tags.
 
 ======
+
 Priority: 5
 
 Size: 1
@@ -50,8 +54,8 @@ As a student new to the community, I want to be able to browse events that I mig
 #### Acceptance Criteria
 New users should be able to create accounts and add tags (interests) so that they can receive a feed of events pertaining to those interests.
 
-
 ======
+
 Priority: 2
 
 Size: 1
@@ -61,6 +65,7 @@ As a student at UTM who lives in downtown Toronto, I want to be able to find eve
 Users should be able to specify which campuses they would like to receive feeds from.
 
 ======
+
 Priority: 2
 
 Size: 3
@@ -71,6 +76,7 @@ Interests should not be matched on a string-to-string basis, rather they should 
 
 ### Steve Zangada
 ======
+
 Priority: 2
 
 Size: 2
@@ -80,6 +86,7 @@ As an event coordinator, I want my group members to be notified when events are 
 Users should be able to subscribe to groups (perhaps join as a member) so that they receive a feed from groups that they are a part of. 
 
 ======
+
 Priority: 2
 
 Size: 2
@@ -89,6 +96,7 @@ As an event coordinator, I want to be able to set privacy settings for events so
 Events should be created with settings that specify who the event is shown to, who is able to see the event, and whether or not invitees can invite others if the event is private.
 
 ======
+
 Priority: 5
 
 Size: 5
@@ -98,6 +106,7 @@ As an event coordinator, I want people to see details about my event, so that th
 Events should be created with as much detail as possible, including name, time, location, description, and any of these details should be able to be edited.
 
 ======
+
 Priority: 1
 
 Size: 1
