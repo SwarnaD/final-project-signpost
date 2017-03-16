@@ -31,17 +31,17 @@ router.route('/users')
     });
   });
 
-router.route('/users/:email')
+router.route('/users/:id')
   .post(function(req, res) {
     //Idk what to do here yet
 
   })
   .put(function(req, res) {
-        User.findOne({ 'email': req.params.name }, function(err, user) {
+        User.findById(req.params.id, function(err, user)  {
 
             if (err){
               // res.send(err);
-              res.json({error: 'Could not find email'})
+              res.json({error: 'Could not find id'})
             }
                 
             user.name = req.body.name;  // update the bears info
@@ -61,7 +61,7 @@ router.route('/users/:email')
 
   })
   .get(function(req, res) {
-    User.findOne({ 'email': req.params.name }, function(err, user)  {
+    User.findById(req.params.id, function(err, user)  {
             if (err){
               // res.send(err);
               res.json({error: 'Could not find user'})
@@ -72,7 +72,7 @@ router.route('/users/:email')
   })
   .delete(function(req, res) {
         User.remove({
-            email: req.params.email
+            _id: req.params.id
 			// _id: req.params.name
 
         }, function(err, users) {

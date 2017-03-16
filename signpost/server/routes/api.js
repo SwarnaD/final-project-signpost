@@ -17,9 +17,6 @@ router.get('/', function(req, res) {
 
 
 
-
-
-
 // see this link for other useful routes (like getall, delete):
 // https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 
