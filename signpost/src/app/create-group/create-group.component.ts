@@ -8,8 +8,8 @@ import { User } from '../_models/group';
 })
 export class CreateGroupComponent implements OnInit {
   model: User = { name: '', description: '', campus: ''}
-  constructor() { 
-    private router: Router
+  constructor(private router: Router) { 
+    
   }
 
   ngOnInit() {
