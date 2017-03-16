@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FeedComponent } from './feed/feed.component';
 import { RegisterComponent } from './register/register.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 
 // this is a very ghetto way to do this, sorry
 var ROUTES = [
@@ -31,6 +32,10 @@ var ROUTES = [
     path: '',
     component: HomeComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'creategroup',
+    component: CreateGroupComponent
   }
 ];
 
@@ -40,7 +45,8 @@ var ROUTES = [
     LoginComponent,
     HomeComponent,
     FeedComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateGroupComponent
   ],
   imports: [
     BrowserModule,
