@@ -12,8 +12,8 @@
 * Parent class: N/A
 * Subclasses: N/A
 * Responsibilities:
-  - Track primary user details (name, email).
-  - Track other details (interests, followed groups, managed groups, subscribed events).
+  - Knows primary user details (name, email).
+  - Knows other details (interests, followed groups, managed groups, subscribed events).
   - Make database requests.
   - Provide information to controllers.
 * Collaborators:
@@ -22,8 +22,8 @@
 * Parent class: N/A
 * Subclasses: N/A
 * Responsibilities:
-  - Track primary group details (name, owner, managers).
-  - Track other details (followers, default tags).
+  - Knows primary group details (name, owner, managers).
+  - Knows other details (followers, default tags).
   - Make database requests.
   - Provide information to controllers.
 * Collaborators:
