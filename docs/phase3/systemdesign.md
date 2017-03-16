@@ -15,10 +15,8 @@
   - Track primary user details (name, email).
   - Track other details (interests, followed groups, managed groups, subscribed events).
   - Make database requests.
-  - Provide information to ApiHandler.
+  - Provide information to controllers.
 * Collaborators:
-  - DatabaseHandler
-  - ApiHandler
 
 **Group**
 * Parent class: N/A
@@ -27,10 +25,8 @@
   - Track primary group details (name, owner, managers).
   - Track other details (followers, default tags).
   - Make database requests.
-  - Provide information to ApiHandler.
+  - Provide information to controllers.
 * Collaborators:
-  - DatabaseHandler
-  - ApiHandler
 
 **Event**
 * Parent class: N/A
@@ -39,10 +35,8 @@
   - Track primary event details (name, time, location, group).
   - Track other details (tags, privacy settings, pictures, comments, subscribers).
   - Make database requests.
-  - Provide information to ApiHandler.
+  - Provide information to controllers.
 * Collaborators:
-  - DatabaseHandler
-  - ApiHandler
 
 ## System-Environment Interaction
 Our system runs on a webserver which requires an up-to-date installation of [Node.js](https://nodejs.org/) and [MongoDB](https://www.mongodb.com/). The network for the server must be configured to service incoming connections on the npm server port (8000 by default).
