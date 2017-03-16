@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 var groupSchema = new Schema({
   name: String,
   description: String,
-  dateCreated, Date; // Date the group was made
+  dateCreated: Date, // Date the group was made
   tags: [String],
   admins: [String], // Moderators of the group
   campus: String
