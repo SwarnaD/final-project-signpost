@@ -10,19 +10,23 @@ router.route('/users')
     user.email = req.body.email;
     user.salt = user.generateSalt(32);  // This could probably be done automatically
     user.password = user.sha512(req.body.password);
+    console.log(user.name);
+    console.log(user.email);
+    console.log(req.body.password);
     user.save(function(err) {
-      if (err){
-        res.json({ error: 'User was not created' });  
-        
-      } 
-      res.json({ message: 'User created!' }); // TODO: should probably log in automatically
+      if (err) {
+        res.json({ error: 'User was not created' });
+
+      } else {
+        res.json({ message: 'User created!' }); // TODO: should probably log in automatically
+      }
     });
   })
   .get(function(req, res) {
     User.find(function(err, users) {
       if (err) {
         // res.send(err);
-        res.json({ error: 'User was not found' });  
+        res.json({ error: 'User was not found' });
       }
       try {
         console.log(req.header('token'));
@@ -46,7 +50,7 @@ router.route('/users/:id')
               // res.send(err);
               res.json({error: 'Could not find id'})
             }
-                
+
             user.name = req.body.name;  // update the bears info
             user.email = req.body.email;
 			      user.password = req.body.password;
@@ -56,7 +60,7 @@ router.route('/users/:id')
                   // res.send(err);
                   res.json({error: 'Could not Update user'})
                 }
-                    
+
                 res.json({ message: 'User updated!' });
             });
 
@@ -69,7 +73,7 @@ router.route('/users/:id')
               // res.send(err);
               res.json({error: 'Could not find user'})
             }
-                
+
             res.json(user);
     });
   })
@@ -83,7 +87,7 @@ router.route('/users/:id')
               res.json({error: 'Could not delete user'});
               // res.send(err);
             }
-                
+
             res.json({ message: 'Successfully deleted' });
         });
     });
