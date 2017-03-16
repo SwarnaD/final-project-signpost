@@ -9,15 +9,14 @@ import { User } from '../_models/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  users: User[] = [];
+  name: String;
+  currentUser;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(users => {  // not sure if this works (what is users?)
-      this.users = users;
-      console.log('users received: ', users);
-    });
+    this.currentUser = JSON.parse(localStorage.getItem('userSession'));
+    this.name = this.currentUser.name;
   }
 
 }

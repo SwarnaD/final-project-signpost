@@ -10,7 +10,7 @@ import { User } from '../_models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: User = { email: "nothing", password: "nothing", name: "nothing" };
+  model: User = { name: '', email: '', password: ''};
   error = '';
   email: String = "asdf";
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.authService.logout();  // currently will log the user out on init for testing
+    this.authService.logout();  // currently will log the user out on init for testing
   }
 
   login() {
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.error = 'Email or password is incorrect';
       }
-    })
+    });
   }
 
 }

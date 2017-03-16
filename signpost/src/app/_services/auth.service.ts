@@ -21,8 +21,10 @@ export class AuthService {
       .map((response: Response) => {
         let success = response.json() && response.json().body.token;
         this.token = response.json().body.token;
+        let _id = response.json().body._id;
+        let name = response.json().body.name;
         if (success) {
-          localStorage.setItem('userSession', JSON.stringify({ 'email': email, 'token': this.token}));
+          localStorage.setItem('userSession', JSON.stringify({  '_id': _id, 'name': name, 'email': email, 'token': this.token }));
           return true;
         } else {
           return false;
@@ -33,6 +35,25 @@ export class AuthService {
   logout(): void {
     this.token = null;
     localStorage.removeItem('userSession');
+  }
+
+  register(name, email, password): Observable<Boolean> {
+    var request = {
+      'name': name,
+      'email': email,
+      'password': password
+    }
+    return this.http.post('/api/users', request)
+      .map((response: Response) => {
+        let error = response.json().body.error;
+        if (error) {
+          return false;
+        } else {
+          // automatically log user in after successful registration
+          this.login(email, password);
+          return true;
+        }
+      });
   }
 
 }

@@ -1,9 +1,6 @@
-<h1>Home</h1>
-<p>You're logged in with JWT!!</p>
-<div>
-    Users from secure api end point:
-    <ul>
-        <li *ngFor="let user of users">{{ user.email }}</li>
-    </ul>
-</div>
-<p><a [routerLink]="['/login']">Logout</a></p>
+<h1>Welcome to Signpost</h1>
+<p>Hello, {{ name }}.</p>
+<p>Here are your groups: (NOT IMPLEMENTED)</p>
+<p>What would you like to do?</p>
+<p><a [routerLink]="['/creategroup']">Create a group (NOT IMPLEMENTED)</a>.</p>
+<p><a [routerLink]="['/login']">Log out</a>.</p>

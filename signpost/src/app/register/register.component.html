@@ -1,10 +1,11 @@
-<h2>Login</h2>
+<h2>Register</h2>
 <p>{{error}}</p>
 <form>
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="model.name" name="name" required><br>
   <label for="email">Email</label>
   <input type="text" [(ngModel)]="model.email" name="email" required><br>
   <label for="password">Password</label>
   <input type="password" [(ngModel)]="model.password" name="password" required><br>
-  <button type="submit" class="btn btn-success" (click)="login()">Submit</button>
+  <button type="submit" class="btn btn-success" (click)="register()">Submit</button>
 </form>
-<p> No account? <a [routerLink]="['/register']">Register here</a>.
