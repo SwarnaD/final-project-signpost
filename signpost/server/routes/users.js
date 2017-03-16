@@ -76,9 +76,11 @@ router.route('/users/:email')
 			// _id: req.params.name
 
         }, function(err, users) {
-            if (err)
-                res.send(err);
-
+            if (err){
+              res.json({error: 'Could not delete user'});
+              // res.send(err);
+            }
+                
             res.json({ message: 'Successfully deleted' });
         });
     });
