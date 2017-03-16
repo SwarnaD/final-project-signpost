@@ -25,4 +25,4 @@ Divide up tasks by component (MVC, frontend/backend). It is difficult to coordin
 
 ## Sprint 2 Experience
 
-Since Sprint 1, we have gotten our project on track. Our codebase is solid, and we as a group have a better understanding of what we are trying to achieve. From here on forward, we should be able to implement new features smoothly.
+Since Sprint 1, we have gotten our project on track. Our codebase is solid, and we as a group have a better understanding of what we are trying to achieve. While we are still not as organized as we would like to be, from here on forward, we should be able to implement new features smoothly.
