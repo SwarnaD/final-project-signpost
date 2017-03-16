@@ -20,7 +20,10 @@ router.route('/users')
   })
   .get(function(req, res) {
     User.find(function(err, users) {
-      if (err) res.send(err);
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'User was not found' });  
+      }
       try {
         console.log(req.header('token'));
         jwt.verify(req.header('token'), 'placeholdersecret'); // TODO: write a local saved secret at some point

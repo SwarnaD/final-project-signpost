@@ -10,13 +10,19 @@ router.route('/events')
     event.location = req.body.location;
     event.date = Date(); // For now create date for current time
     event.save(function(err) {
-      if (err) res.send(err);
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'Couldnt save event' });
+      }
       res.json({ message: 'event created!' });
     });
   })
   .get(function(req, res) {
     Event.find(function(err, events) {
-      if (err) res.send(err);
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'Couldnt find events' });
+      }
       res.json(events);
     })
   });
@@ -29,15 +35,20 @@ router.route('/events/:name')
   .put(function(req, res) {
         Event.findByName(req.params.name, function(err, event) {
 
-            if (err)
-                res.send(err);
+            if (err){
+                // res.send(err);
+                res.json({ error: 'Couldnt find event by name' });
+            }
             event.name = req.body.name;  // update the bears info
             event.email = req.body.email;
       event.password = req.body.password;
             // save the event
             event.save(function(err) {
-                if (err)
-                    res.send(err);
+                if (err){
+                  res.json({ error: 'Couldnt save event' });
+                  // res.send(err);
+                }
+                    
                 res.json({ message: 'Event updated!' });
             });
 
@@ -46,8 +57,10 @@ router.route('/events/:name')
   })
   .get(function(req, res) {
     Event.findByName(req.params.name, function(err, event) {
-            if (err)
-                res.send(err);
+            if (err){
+              // res.send(err);
+              res.json({ error: 'Couldnt find event by name' });
+            }
             res.json(event);
     });
   })
@@ -57,8 +70,11 @@ router.route('/events/:name')
       // _id: req.params.name
 
         }, function(err, events) {
-            if (err)
-                res.send(err);
+            if (err){
+              res.json({ error: 'Couldnt delete event' });
+              res.send(err);
+            }
+                
 
             res.json({ message: 'Successfully deleted' });
         });
