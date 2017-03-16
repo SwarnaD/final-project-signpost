@@ -7,22 +7,32 @@ export class GroupService {
 
   constructor(private http: Http) { }
 
-  addGroup(name, description, campus): Observable<Boolean> {
+  addGroup(userid, name, description, campus): Observable<Boolean> {
     var request = {
+        'userid': userid,
         'name' : name,
         'description' : description,
         'campus' : campus
     }
     return this.http.post('/api/groups', request)
       .map((response: Response) => {
-        let error = response.json().body.error;
-        if(error){
-        return false;
-        }else {
-        return true;
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
         }
       });
+  }
 
+  getOwnedGroups(userID) {
+    return this.http.get('/api/groups/user/' + userID)
+      .map((response: Response) => response.json());
+  }
+
+  getGroup(groupId) {
+    return this.http.get('/api/groups/' + groupId)
+      .map((response: Response) => response.json());
   }
 
 }

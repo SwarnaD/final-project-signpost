@@ -10,6 +10,7 @@ import { GroupService } from '../_services/group.service'
 export class CreateGroupComponent implements OnInit {
   model: Group = { name: '', description: '', campus: ''}
   error = '';
+  _id: String;
 
   constructor(
     private groupService: GroupService,
@@ -17,10 +18,12 @@ export class CreateGroupComponent implements OnInit {
   }
 
   ngOnInit() {
+    let currentUser = JSON.parse(localStorage.getItem('userSession'));
+    this._id = currentUser._id;
   }
 
   createGroup() {
-    this.groupService.addGroup(this.model.name, this.model.campus, this.model.description).subscribe(result => {
+    this.groupService.addGroup(this._id, this.model.name, this.model.campus, this.model.description).subscribe(result => {
       if (result === true) {
         this.router.navigate(['/']);
       } else {

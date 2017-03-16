@@ -8,7 +8,7 @@ router.use(function(req, res, next) {
 
 
 router.use(require('./groups'));
-router.use(require('./event'));
+router.use(require('./events'));
 router.use(require('./auth'));
 router.use(require('./users'));
 router.get('/', function(req, res) {

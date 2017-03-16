@@ -9,6 +9,7 @@ router.route('/groups')
     group.name = req.body.name;
     group.description = req.body.description;
     group.campus = req.body.campus;
+    group.admins.push(req.body.userid);
     group.save(function(err) {
       if (err) {
         // res.send(err);
@@ -37,7 +38,7 @@ router.route('/groups/:id')
 
             if (err){
                 // res.send(err);
-                res.json({ error: 'Could not find group by id' });  
+                res.json({ error: 'Could not find group by id' });
             }
             group.name = req.body.name;  // update the bears info
             group.email = req.body.email;
@@ -46,9 +47,9 @@ router.route('/groups/:id')
             group.save(function(err) {
                 if (err){
                   // res.send(err);
-                  res.json({ error: 'Could not update group' });  
+                  res.json({ error: 'Could not update group' });
                 }
-                    
+
                 res.json({ message: 'Group updated!' });
             });
 
@@ -59,7 +60,7 @@ router.route('/groups/:id')
     Group.findById(req.params.id, function(err, group) {
             if (err){
                 // res.send(err);
-                res.json({ error: 'Could not find group by id' });  
+                res.json({ error: 'Could not find group by id' });
               }
             res.json(group);
     });
@@ -71,13 +72,33 @@ router.route('/groups/:id')
 
         }, function(err, groups) {
             if (err){
-              res.json({ error: 'Could not find group by id' });  
+              res.json({ error: 'Could not find group by id' });
               // res.send(err);
             }
-                
+
 
             res.json({ message: 'Successfully deleted' });
         });
     });
+
+router.route('/groups/user/:id')
+  // adds user as an admin of a group
+  .post(function(req, res) {
+    Group.findById(req.body.groupid, function(err, group) {
+      if (err) res.json({ error: 'Could not retrieve group' });
+      group.admins.push(req.params.id);
+      group.save(function(err) {
+        if (err) res.json({ error: 'Could not save group' });
+        res.json({ message: 'User added to group admins list.'});
+      });
+    });
+  })
+  // retrieves groups belonging to id
+  .get(function(req, res) {
+    Group.find({ admins: req.params.id }, function(err, groups) {
+      if (err) res.json({ error: 'Could not retrieve groups' });
+      res.json(groups);
+    });
+  });
 
 module.exports = router;

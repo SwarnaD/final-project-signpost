@@ -26,4 +26,9 @@ export class EventService {
 
   }
 
+  getEvent(id) {
+    return this.http.get('/api/events/' + id)
+      .map((response: Response) => response.json());
+  }
+
 }

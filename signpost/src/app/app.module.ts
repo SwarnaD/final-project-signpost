@@ -19,6 +19,7 @@ import { FeedComponent } from './feed/feed.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { GroupComponent } from './group/group.component';
 
 // this is a very ghetto way to do this, sorry
 var ROUTES = [
@@ -40,8 +41,12 @@ var ROUTES = [
     component: CreateGroupComponent
   },
   {
-    path: 'createevent',
+    path: 'createevent/:id',
     component: CreateEventComponent
+  },
+  {
+    path: 'group/:id',
+    component: GroupComponent
   }
 ];
 
@@ -53,7 +58,8 @@ var ROUTES = [
     FeedComponent,
     RegisterComponent,
     CreateGroupComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,

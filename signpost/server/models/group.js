@@ -7,7 +7,8 @@ var groupSchema = new Schema({
   dateCreated: Date, // Date the group was made
   tags: [String],
   admins: [String], // Moderators of the group
-  campus: String
+  campus: String,
+  events: [String]
 })
 
 //New function to find by name
