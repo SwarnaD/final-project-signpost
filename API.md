@@ -94,5 +94,3 @@
 
   * **Code:** UNKNOWN
     **Content:** `{error: 'Could not Update user'}`
-
-  
