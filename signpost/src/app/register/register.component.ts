@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.authService.register(this.model.name, this.model.email, this.model.password)
       .subscribe(result => {
+        console.log(result);
         if (result === true) {
           this.router.navigate(['/']);
         } else {

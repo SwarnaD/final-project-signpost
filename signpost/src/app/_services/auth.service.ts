@@ -45,13 +45,13 @@ export class AuthService {
     }
     return this.http.post('/api/users', request)
       .map((response: Response) => {
-        let error = response.json().body.error;
-        if (error) {
-          return false;
-        } else {
-          // automatically log user in after successful registration
-          this.login(email, password);
+        console.log(response.json());
+        let success = response.json() && response.json().message;
+        if (success) {
+          // TODO: automatically log user in after successful registration
           return true;
+        } else {
+          return false;
         }
       });
   }
