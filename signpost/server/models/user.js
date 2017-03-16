@@ -6,7 +6,10 @@ var userSchema = new Schema({
   name: String, // we should update this to have first/last fields
   email: String,
   password: String,
-  salt: String
+  tags: [String],
+  salt: String,
+  blacklistedCampuses: [String],
+  blacklistedTags: [String]
 })
 
 userSchema.static('findByName', function (name, callback) {
