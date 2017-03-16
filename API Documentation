@@ -1,4 +1,4 @@
-**User GET Request**
+**Users GET**
 ----
   _Get all information about every user_
 
@@ -27,3 +27,72 @@
 * **Notes:**
 
   You need a token in order to make a successful request
+  
+**Users POST**
+----
+  _insert a user into USER database_
+
+* **URL**
+
+  _/api/users_
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `name=[STRING]`
+   `email=[STRING]`
+   `password=[STRING]`
+
+   **Optional:**
+ 
+   `salt=[STRING]`
+
+* **Success Response:**
+  * **Code:** 200 <br />
+    **Content:** `{ message: 'User created!' }`
+ 
+* **Error Response:**
+
+  * **Code:** UNKNOWN
+    **Content:** `{ error: 'User was not created' }`
+
+
+* **Notes:**
+  You need a token in order to make a successful request
+  
+-----------------
+
+**Specific User PUT**
+----
+  _insert a user into USER database_
+
+* **URL**
+
+  _/api/users/:email_
+
+* **Method:**
+
+  `PUT`
+  
+*  **URL Params**
+
+   **Optional:**
+   `name=[STRING]`
+   `email=[STRING]`
+   `password=[STRING]`
+
+* **Success Response:**
+  * **Code:** 200 <br />
+    **Content:** `{ message: 'User updated!' }`
+ 
+* **Error Response:**
+
+  * **Code:** UNKNOWN
+    **Content:** `{error: 'Could not Update user'}`
+
+  

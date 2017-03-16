@@ -11,7 +11,10 @@ router.route('/users')
     user.salt = user.generateSalt(32);  // This could probably be done automatically
     user.password = user.sha512(req.body.password);
     user.save(function(err) {
-      if (err) res.send(err);
+      if (err){
+        res.json({ error: 'User was not created' });  
+        
+      } 
       res.json({ message: 'User created!' }); // TODO: should probably log in automatically
     });
   })
@@ -28,23 +31,29 @@ router.route('/users')
     });
   });
 
-router.route('/users/:name')
+router.route('/users/:email')
   .post(function(req, res) {
     //Idk what to do here yet
 
   })
   .put(function(req, res) {
-        User.findByName(req.params.name, function(err, user) {
+        User.findOne({ 'email': req.params.name }, function(err, user) {
 
-            if (err)
-                res.send(err);
+            if (err){
+              // res.send(err);
+              res.json({error: 'Could not find email'})
+            }
+                
             user.name = req.body.name;  // update the bears info
             user.email = req.body.email;
-			user.password = req.body.password;
+			      user.password = req.body.password;
             // save the user
             user.save(function(err) {
-                if (err)
-                    res.send(err);
+                if (err){
+                  // res.send(err);
+                  res.json({error: 'Could not Update user'})
+                }
+                    
                 res.json({ message: 'User updated!' });
             });
 
@@ -52,15 +61,18 @@ router.route('/users/:name')
 
   })
   .get(function(req, res) {
-    User.findByName(req.params.name, function(err, user) {
-            if (err)
-                res.send(err);
+    User.findOne({ 'email': req.params.name }, function(err, user)  {
+            if (err){
+              // res.send(err);
+              res.json({error: 'Could not find user'})
+            }
+                
             res.json(user);
     });
   })
   .delete(function(req, res) {
         User.remove({
-            name: req.params.name
+            email: req.params.email
 			// _id: req.params.name
 
         }, function(err, users) {
