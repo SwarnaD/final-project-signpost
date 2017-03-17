@@ -62,7 +62,7 @@ We will divide tasks up by features rather than components this week, to allevia
 * As a person that does not fluently speak English, I want to be able to find and join in on extracurricular activities consistently with the same group without fearing miscommunication.
 * Assignment: Selby Gomes/Justin Mao
 
-###Other Tasks
+### Other Tasks
 * Update system design document (Justin Mao)
 * Update API documentation (Adam Lee/Frank Xie/Joseph Lee)
 * Consolidate project components (Justin Mao)
