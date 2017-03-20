@@ -6,7 +6,11 @@ var router = express.Router();
 router.route('/events')
   .post(function(req, res) {
     var event = new Event();
-    event.name = req.body.name;
+    if (/\S/.test(req.body.name)){
+      event.name = req.body.name;
+    } else {
+      res.json({ error: 'An event needs a name' });
+    }
     event.description = req.body.description;
     event.location = req.body.location;
     event.date = Date(); // For now create date for current time

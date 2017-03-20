@@ -6,7 +6,7 @@ var router = express.Router();
 router.route('/groups')
   .post(function(req, res) {
     var group = new Group();
-    if (req.body.name){
+    if (/\S/.test(req.body.name)){
       group.name = req.body.name;
     } else {
       res.json({ error: 'A group needs a name' });
