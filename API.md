@@ -73,7 +73,7 @@
 
 * **URL**
 
-  _/api/users/:email_
+  _/api/users/:id_
 
 * **Method:**
 
@@ -94,3 +94,52 @@
 
   * **Code:** UNKNOWN
     **Content:** `{error: 'Could not Update user'}`
+----------------
+**Events GET by tag**
+----
+  _Get all events containing a list of tags_
+
+* **URL**
+
+  _/api/events/:groupId/:tags_
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   `groupId=STRING`
+   `tags=STRING`
+
+* **Success Response:**
+  * **Code:** 200 <br />
+    **Content:** `[
+  {
+    "_id": "58d04d77a8627214b75b40c3",
+    "groupId": "58cff5694041cc3ace06425c",
+    "date": "2017-03-20T21:45:27.000Z",
+    "location": "domrwhrt",
+    "description": "There is no deck",
+    "name": "Test",
+    "__v": 0,
+    "tags": [
+      "friendly",
+      "fun"
+    ],
+    "eventAdmins": [
+      null
+    ]
+  }
+]`
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "message" }`
+
+
+* **Notes:**
+
+  TAGS should be in the form "tag1,tag2,tag3"
+  
