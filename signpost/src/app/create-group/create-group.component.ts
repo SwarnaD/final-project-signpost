@@ -23,7 +23,7 @@ export class CreateGroupComponent implements OnInit {
   }
 
   createGroup() {
-    this.groupService.addGroup(this._id, this.model.name, this.model.campus, this.model.description).subscribe(result => {
+    this.groupService.addGroup(this._id, this.model.name, this.model.description, this.model.campus).subscribe(result => {
       if (result === true) {
         this.router.navigate(['/']);
       } else {

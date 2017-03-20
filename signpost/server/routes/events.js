@@ -10,6 +10,12 @@ router.route('/events')
     event.description = req.body.description;
     event.location = req.body.location;
     event.date = Date(); // For now create date for current time
+    event.eventAdmins.push(req.body.eventAdmins);
+    var tags = req.body.tags.split(',');
+    for (var i = tags.length - 1; i >= 0; i--) {
+    	event.tags.push(tags[i]);
+    }
+
     // add the event to the group's even list
     event.groupId =req.body.groupId;
     Group.findById(req.body.groupId, function(err, group) {
@@ -20,7 +26,7 @@ router.route('/events')
         // res.send(err);
         res.json({ error: 'Could not update group' });
       }
-    });
+    	});
     });
     
     event.save(function(err) {
@@ -41,21 +47,38 @@ router.route('/events')
     })
   });
 
-router.route('/events/:name')
+router.route('/events/:id')
   .post(function(req, res) {
     //Idk what to do here yet
 
   })
   .put(function(req, res) {
-        Event.findByName(req.params.name, function(err, event) {
+        Event.findById(req.params.id, function(err, event) {
 
             if (err){
                 // res.send(err);
                 res.json({ error: 'Couldnt find event by name' });
             }
-            event.name = req.body.name;  // update the bears info
-            event.email = req.body.email;
-      event.password = req.body.password;
+            if (req.body.name){
+            	event.name = req.body.name;  
+            }
+            if (req.body.eventAdmins){
+            	event.eventAdmins.push(req.body.eventAdmins);
+            }
+            if (req.body.location){
+            	event.location = req.body.location;
+            }
+            if (req.body.tags){
+            	var tags = req.body.tags.split(',');
+            	for (var i = tags.length - 1; i >= 0; i--) {
+            		event.tags.push(tags[i]);
+            	}
+            }
+            if (req.body.description){
+            	event.description = req.body.description;
+            }
+            
+      			
             // save the event
             event.save(function(err) {
                 if (err){
@@ -70,10 +93,10 @@ router.route('/events/:name')
 
   })
   .get(function(req, res) {
-    Event.findByName(req.params.name, function(err, event) {
+    Event.findById(req.body.groupId, function(err, event) {
             if (err){
               // res.send(err);
-              res.json({ error: 'Couldnt find event by name' });
+              res.json({ error: 'Couldnt find event by id' });
             }
             res.json(event);
     });
@@ -94,21 +117,21 @@ router.route('/events/:name')
         });
     });
 
-  // router.route('/events/:groupId/:tags')
-  // .post(function(req, res) {
-  //   //Idk what to do here yet
+  router.route('/events/:groupId/:tags')
+  .post(function(req, res) {
+    //Idk what to do here yet
 
-  // })
-  // .get(function(req, res) {
-  // 	var tagsToFind = req.tags.tags.split(',');
-  // 	Event.find({groupId: req.params.groupId, tags: {"$all":tagsToFind}},function(err, events) {
-  //     if (err) {
-  //       // res.send(err);
-  //       res.json({ error: 'No groups match that criteria' });
-  //     }
-  //     res.json(events);
-  //   });
-  // });
+  })
+  .get(function(req, res) {
+  	var tagsToFind = req.params.tags.split(',');
+  	Event.find({groupId: req.params.groupId, tags: {"$all":tagsToFind}},function(err, events) {
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'No groups match that criteria' });
+      }
+      res.json(events);
+    });
+  });
 
 
 module.exports = router;
