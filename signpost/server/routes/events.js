@@ -104,7 +104,7 @@ router.route('/events/:id')
   .delete(function(req, res) {
         Event.remove({
             // name: req.params.name
-      _id: req.params.name
+      _id: req.params.id;
 
         }, function(err, events) {
             if (err){
