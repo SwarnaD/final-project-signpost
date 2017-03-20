@@ -10,6 +10,7 @@ import { GroupService } from '../_services/group.service';
 export class GroupComponent implements OnInit {
   _id: String;
   group: any = [];
+  groups: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,5 +28,10 @@ export class GroupComponent implements OnInit {
       this.group = group;
     });
   }
-
+  getAllGroups(){
+    this.groupService.getAllGroups().subscribe(groups => {
+      this.groups = groups;
+    });
+  }
+  
 }

@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   _id: String;
   name: String;
   groups: any = [];
-
+  allGroups: any = [];
+  
   constructor(
     private groupService: GroupService,
     private userService: UserService,
@@ -26,11 +27,17 @@ export class HomeComponent implements OnInit {
     this._id = this.currentUser._id;
     this.name = this.currentUser.name;
     this.getGroups();
+    this.getAllGroups();
   }
 
   getGroups() {
     this.groupService.getOwnedGroups(this._id).subscribe(groups => {
       this.groups = groups;
+    });
+  }
+  getAllGroups(){
+    this.groupService.getAllGroups().subscribe(g => {
+      this.allGroups = g;
     });
   }
 
