@@ -22,4 +22,6 @@ app.listen(port);
 console.log('Listening on ' + port);
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://team301:301signpost@ds127260.mlab.com:27260/signpost');
+// mongoose.connect('mongodb://team301:301signpost@ds127260.mlab.com:27260/signpost');
+mongoose.connect('mongodb://localhost:27017');
+

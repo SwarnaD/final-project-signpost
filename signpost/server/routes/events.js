@@ -3,20 +3,26 @@ var Group = require('../models/group');
 var express = require('express');
 var router = express.Router();
 
-router.route('/events/:id')
-  // creates an event belonging to group with id
+router.route('/events')
   .post(function(req, res) {
     var event = new Event();
     event.name = req.body.name;
     event.description = req.body.description;
     event.location = req.body.location;
-    event.groupId = req.params.id;
     event.date = Date(); // For now create date for current time
     // add the event to the group's even list
-    Group.findById(req.params.id, function(err, group) {
-      if (err) res.json({ error: 'Could not find group by id.'});
-      group.events.push(event._id);
+    event.groupId =req.body.groupId;
+    Group.findById(req.body.groupId, function(err, group) {
+    	if (err) res.json({ error: 'Could not find group by id.'});
+    	group.events.push(event._id);
+    	group.save(function(err) {
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'Could not update group' });
+      }
     });
+    });
+    
     event.save(function(err) {
       if (err) {
         // res.send(err);
@@ -74,8 +80,8 @@ router.route('/events/:name')
   })
   .delete(function(req, res) {
         Event.remove({
-            name: req.params.name
-      // _id: req.params.name
+            // name: req.params.name
+      _id: req.params.name
 
         }, function(err, events) {
             if (err){
@@ -87,6 +93,22 @@ router.route('/events/:name')
             res.json({ message: 'Successfully deleted' });
         });
     });
+
+  // router.route('/events/:groupId/:tags')
+  // .post(function(req, res) {
+  //   //Idk what to do here yet
+
+  // })
+  // .get(function(req, res) {
+  // 	var tagsToFind = req.tags.tags.split(',');
+  // 	Event.find({groupId: req.params.groupId, tags: {"$all":tagsToFind}},function(err, events) {
+  //     if (err) {
+  //       // res.send(err);
+  //       res.json({ error: 'No groups match that criteria' });
+  //     }
+  //     res.json(events);
+  //   });
+  // });
 
 
 module.exports = router;
