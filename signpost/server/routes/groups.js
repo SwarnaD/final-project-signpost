@@ -81,9 +81,29 @@ router.route('/groups/:id')
         });
     });
 
+
+router.route('/groups/search/:tags')
+.post(function(req, res) {
+  //Idk what to do here yet
+})
+.get(function(req, res) {
+  var tagsToFind = req.params.tags.split(',');
+  Group.find({tags: {"$all":tagsToFind}},function(err, groups) {
+    if (err) {
+      // res.send(err);
+      res.json({ error: 'No groups match that criteria' });
+    }
+    res.json(groups);
+  });
+});
+
 router.route('/groups/user/:id')
   // adds user as an admin of a group
   .post(function(req, res) {
+    //Idk what to do here yet
+
+  })
+  .put(function(req, res) {
     Group.findById(req.body.groupid, function(err, group) {
       if (err) res.json({ error: 'Could not retrieve group' });
       group.admins.push(req.params.id);
