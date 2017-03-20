@@ -10,6 +10,12 @@ router.route('/groups')
     group.description = req.body.description;
     group.campus = req.body.campus;
     group.admins.push(req.body.userid);
+
+    var tags = req.body.tags.split(',');
+    for (var i = tags.length - 1; i >= 0; i--) {
+      group.tags.push(tags[i]);
+    }
+
     group.save(function(err) {
       if (err) {
         // res.send(err);
