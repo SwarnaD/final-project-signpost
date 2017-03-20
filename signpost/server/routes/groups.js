@@ -6,7 +6,12 @@ var router = express.Router();
 router.route('/groups')
   .post(function(req, res) {
     var group = new Group();
-    group.name = req.body.name;
+    if (req.body.name){
+      group.name = req.body.name;
+    } else {
+      res.json({ error: 'A group needs a name' });
+    }
+    
     group.description = req.body.description;
     group.campus = req.body.campus;
     group.admins.push(req.body.userid);
