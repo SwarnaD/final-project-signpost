@@ -7,6 +7,7 @@ var eventSchema = new Schema({
   location: String,
   groupId: String,
   eventAdmins: [String], // Users administrating events
+  campus: String,
   // eventHosts: [String], // Groups hosting event
   // repeat: Boolean, // Event occurs monthly, weekly, daily, etc
   tags: [String],
