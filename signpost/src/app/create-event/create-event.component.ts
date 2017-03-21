@@ -8,8 +8,9 @@ import { EventService } from '../_services/event.service';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-  model: Event = { name: '', description: '', location: '', campus: ''}
+  model: Event = { name: '', description: '', location: '', campus: '', tags: '', date: ''}
   error = '';
+  _id: String;
 
   constructor(
     private eventService: EventService,
@@ -17,10 +18,12 @@ export class CreateEventComponent implements OnInit {
   }
 
   ngOnInit() {
+    let currentUser = JSON.parse(localStorage.getItem('userSession'));
+    this._id = currentUser._id;
   }
 
   createEvent() {
-    this.eventService.addEvent(this.model.name, this.model.description, this.model.location, this.model.campus).subscribe(result => {
+    this.eventService.addEvent(this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags, this.model.date).subscribe(result => {
       if (result === false) {
         this.router.navigate(['/']);
       } else {

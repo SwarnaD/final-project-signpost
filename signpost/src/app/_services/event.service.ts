@@ -7,12 +7,14 @@ export class EventService {
 
   constructor(private http: Http) { }
 
-  addEvent(name, description, location, campus): Observable<Boolean> {
+  addEvent(name, description, location, campus, tags, time): Observable<Boolean> {
     var request = {
         'name' : name,
         'description' : description,
         'location' : location,
-        'campus' : campus
+        'campus' : campus,
+        'tags' : tags,
+        'time' : time
     }
     return this.http.post('/api/events', request)
       .map((response: Response) => {

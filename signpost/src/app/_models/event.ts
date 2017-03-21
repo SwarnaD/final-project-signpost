@@ -3,4 +3,6 @@ export class Event {
   description: String;
   location: String;
   campus: String;
+  tags: String;
+  date: String;
 }

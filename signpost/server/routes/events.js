@@ -32,7 +32,7 @@ router.route('/events')
       }
     	});
     });
-    
+
     event.save(function(err) {
       if (err) {
         // res.send(err);
@@ -64,7 +64,7 @@ router.route('/events/:id')
                 res.json({ error: 'Couldnt find event by name' });
             }
             if (req.body.name){
-            	event.name = req.body.name;  
+            	event.name = req.body.name;
             }
             if (req.body.eventAdmins){
             	event.eventAdmins.push(req.body.eventAdmins);
@@ -81,8 +81,8 @@ router.route('/events/:id')
             if (req.body.description){
             	event.description = req.body.description;
             }
-            
-      			
+
+
             // save the event
             event.save(function(err) {
                 if (err){
