@@ -24,7 +24,7 @@ router.route('/events')
     event.groupId =req.body.groupId;
     Group.findById(req.body.groupId, function(err, group) {
     	if (err) res.json({ error: 'Could not find group by id.'});
-    	group.events.push(event._id);
+    	group.event.push(event._id);
     	group.save(function(err) {
       if (err) {
         // res.send(err);
@@ -86,7 +86,7 @@ router.route('/events/:id')
             // save the event
             event.save(function(err) {
                 if (err){
-                  res.json({ error: 'Couldnt save event' });
+                  res.json({ error: 'Couldn\'t save event' });
                   // res.send(err);
                 }
 
@@ -100,7 +100,7 @@ router.route('/events/:id')
     Event.findById(req.body.groupId, function(err, event) {
             if (err){
               // res.send(err);
-              res.json({ error: 'Couldnt find event by id' });
+              res.json({ error: 'Couldn\'t find event by id' });
             }
             res.json(event);
     });
@@ -112,7 +112,7 @@ router.route('/events/:id')
 
         }, function(err, events) {
             if (err){
-              res.json({ error: 'Couldnt delete event' });
+              res.json({ error: 'Couldn\'t delete event' });
               res.send(err);
             }
 
@@ -131,7 +131,7 @@ router.route('/events/:id')
   	Event.find({groupId: req.params.groupId, tags: {"$all":tagsToFind}},function(err, events) {
       if (err) {
         // res.send(err);
-        res.json({ error: 'No groups match that criteria' });
+        res.json({ error: 'No events match that criteria' });
       }
       res.json(events);
     });

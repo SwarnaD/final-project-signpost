@@ -7,12 +7,13 @@ export class GroupService {
 
   constructor(private http: Http) { }
 
-  addGroup(userid, name, description, campus): Observable<Boolean> {
+  addGroup(userid, name, description, campus, tags): Observable<Boolean> {
     var request = {
         'userid': userid,
         'name' : name,
         'description' : description,
-        'campus' : campus
+        'campus' : campus,
+        'tags' : tags
     }
     return this.http.post('/api/groups', request)
       .map((response: Response) => {
@@ -34,7 +35,7 @@ export class GroupService {
     return this.http.get('/api/groups/' + groupId)
       .map((response: Response) => response.json());
   }
-  
+
   getAllGroups() {
     return this.http.get('/api/groups/')
       .map((response: Response) => response.json());

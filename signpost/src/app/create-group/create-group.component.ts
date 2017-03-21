@@ -8,7 +8,7 @@ import { GroupService } from '../_services/group.service'
   styleUrls: ['./create-group.component.css']
 })
 export class CreateGroupComponent implements OnInit {
-  model: Group = { name: '', description: '', campus: ''}
+  model: Group = { name: '', description: '', campus: '', tags: ''}
   error = '';
   _id: String;
 
@@ -23,7 +23,7 @@ export class CreateGroupComponent implements OnInit {
   }
 
   createGroup() {
-    this.groupService.addGroup(this._id, this.model.name, this.model.description, this.model.campus).subscribe(result => {
+    this.groupService.addGroup(this._id, this.model.name, this.model.description, this.model.campus, this.model.tags).subscribe(result => {
       if (result === true) {
         this.router.navigate(['/']);
       } else {

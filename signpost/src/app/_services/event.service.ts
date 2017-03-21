@@ -7,21 +7,21 @@ export class EventService {
 
   constructor(private http: Http) { }
 
-  addEvent(name, description, location, campus, tags, time): Observable<Boolean> {
+  addEvent(userid, name, description, location, campus, tags): Observable<Boolean> {
     var request = {
+        'userid' : userid,
         'name' : name,
         'description' : description,
         'location' : location,
         'campus' : campus,
-        'tags' : tags,
-        'time' : time
+        'tags' : tags
     }
     return this.http.post('/api/events', request)
       .map((response: Response) => {
         let error = response.json().body.error;
         if(error){
         return false;
-        }else {
+        } else {
         return true;
         }
       });
