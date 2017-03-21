@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { AuthGuard } from './_guards/auth.guard'
+import { AuthGuard } from './_guards/auth.guard';
 
-import { AuthService } from './_services/auth.service'
-import { GroupService } from './_services/group.service'
-import { EventService } from './_services/event.service'
-import { UserService } from './_services/user.service'
+import { AuthService } from './_services/auth.service';
+import { GroupService } from './_services/group.service';
+import { EventService } from './_services/event.service';
+import { UserService } from './_services/user.service';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -20,9 +20,10 @@ import { RegisterComponent } from './register/register.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { GroupComponent } from './group/group.component';
+import { EventComponent } from './event/event.component';
 
 // this is a very ghetto way to do this, sorry
-var ROUTES = [
+const ROUTES = [
   {
     path: 'login',
     component: LoginComponent
@@ -47,6 +48,10 @@ var ROUTES = [
   {
     path: 'group/:id',
     component: GroupComponent
+  },
+  {
+    path: 'event/:id',
+    component: EventComponent
   }
 ];
 
@@ -59,7 +64,8 @@ var ROUTES = [
     RegisterComponent,
     CreateGroupComponent,
     CreateEventComponent,
-    GroupComponent
+    GroupComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
