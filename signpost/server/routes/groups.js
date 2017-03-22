@@ -51,9 +51,16 @@ router.route('/groups/:id')
                 // res.send(err);
                 res.json({ error: 'Could not find group by id' });
             }
-            group.name = req.body.name;  // update the bears info
-            group.email = req.body.email;
-      group.password = req.body.password;
+            group.name = req.body.name;  
+            group.description = req.body.description;
+            group.tags = [];
+
+            var tags = req.body.tags.split(',');
+            for (var i = tags.length - 1; i >= 0; i--) {
+              group.tags.push(tags[i]);
+            }
+
+            group.campus = req.body.campus;
             // save the group
             group.save(function(err) {
                 if (err){
