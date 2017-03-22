@@ -1,3 +1,14 @@
-<p>
-  edit-group works!
-</p>
+<form>
+    <label for="name">Name</label>
+    <input type ="text" [(ngModel)] = "model.name" name = 'name' required><br>
+    <label for="name">Description</label>
+    <input type ="text" [(ngModel)] = "model.description" name = 'description' required><br>
+    <label for="name">Campus</label>
+    <input type ="text" [(ngModel)] = "model.campus" name = 'campus' required><br>
+    <label for="name">Tags</label>
+    <input type ="text" [(ngModel)] = "model.tags" name = 'tags' required><br>
+    <label for="name">Admins</label>
+    <input type ="text" [(ngModel)] = "model.admins" name = 'tags' required><br>
+    <button type="submit"> </button>
+</form>
+<a [routerLink]="['/']">Back</a>.
