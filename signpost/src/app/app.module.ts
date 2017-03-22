@@ -54,6 +54,10 @@ const ROUTES = [
   {
     path: 'event/:id',
     component: EventComponent
+  },
+  {
+    path: 'group/:id/edit-group',
+    component: EditGroupComponent
   }
 ];
 
