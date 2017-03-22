@@ -7,25 +7,25 @@ export class EventService {
 
   constructor(private http: Http) { }
 
-  addEvent(groupId, name, description, location, campus, tags): Observable<Boolean> {
+  addEvent(groupId, name, description, location, campus, tags, date): Observable<Boolean> {
     var request = {
         'groupId' : groupId,
         'name' : name,
         'description' : description,
         'location' : location,
         'campus' : campus,
-        'tags' : tags
+        'tags' : tags,
+        'date' : date
     }
     return this.http.post('/api/events', request)
       .map((response: Response) => {
-        let error = response.json().body.error;
-        if(error){
-        return false;
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
         } else {
-        return true;
+          return false;
         }
       });
-
   }
 
   getEvent(id) {

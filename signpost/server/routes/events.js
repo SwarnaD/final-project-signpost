@@ -14,8 +14,7 @@ router.route('/events')
 
     event.description = req.body.description;
     event.location = req.body.location;
-    event.date = Date(); // For now create date for current time
-    event.eventAdmins.push(req.body.eventAdmins);
+    event.date = req.body.date; // For now create date for current time
 
     var tags = req.body.tags.split(',');
     for (var i = tags.length - 1; i >= 0; i--) {
@@ -27,6 +26,7 @@ router.route('/events')
     console.log(event.groupId);
     Group.findById(req.body.groupId, function(err, group) {
     	if (err) res.json({ error: 'Could not find group by id.'});
+      event.eventAdmins.push(group.name);
     	group.events.push(event.name);
     	group.save(function(err) {
       if (err) {

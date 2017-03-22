@@ -9,7 +9,7 @@ import { EventService } from '../_services/event.service';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-  model: Event = { name: '', description: '', location: '', campus: '', tags: ''}
+  model: Event = { name: '', description: '', location: '', campus: '', tags: '', date: ''}
   error = '';
   _id: String;
 
@@ -27,8 +27,8 @@ export class CreateEventComponent implements OnInit {
 
   createEvent() {
     console.log(this._id);
-    this.eventService.addEvent(this._id, this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags).subscribe(result => {
-      if (result === false) {
+    this.eventService.addEvent(this._id, this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags, this.model.date).subscribe(result => {
+      if (result === true) {
         this.router.navigate(['/']);
       } else {
         this.error = 'invalid event name, already exists';
