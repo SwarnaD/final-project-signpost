@@ -21,6 +21,8 @@ import { CreateGroupComponent } from './create-group/create-group.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { GroupComponent } from './group/group.component';
 import { EventComponent } from './event/event.component';
+import { EditGroupComponent } from './edit-group/edit-group.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 // this is a very ghetto way to do this, sorry
 const ROUTES = [
@@ -65,7 +67,9 @@ const ROUTES = [
     CreateGroupComponent,
     CreateEventComponent,
     GroupComponent,
-    EventComponent
+    EventComponent,
+    EditGroupComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
