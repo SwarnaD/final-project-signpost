@@ -7,9 +7,9 @@ export class EventService {
 
   constructor(private http: Http) { }
 
-  addEvent(userid, name, description, location, campus, tags): Observable<Boolean> {
+  addEvent(groupId, name, description, location, campus, tags): Observable<Boolean> {
     var request = {
-        'userid' : userid,
+        'groupId' : groupId,
         'name' : name,
         'description' : description,
         'location' : location,

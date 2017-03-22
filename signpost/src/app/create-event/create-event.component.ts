@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Event } from '../_models/event';
 import { EventService } from '../_services/event.service';
 @Component({
@@ -14,15 +15,18 @@ export class CreateEventComponent implements OnInit {
 
   constructor(
     private eventService: EventService,
+    private route: ActivatedRoute,
     private router: Router) {
   }
 
   ngOnInit() {
-    let currentUser = JSON.parse(localStorage.getItem('userSession'));
-    this._id = currentUser._id;
+    this.route.params.subscribe(params => {
+      this._id = params['id'];
+    });
   }
 
   createEvent() {
+    console.log(this._id);
     this.eventService.addEvent(this._id, this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags).subscribe(result => {
       if (result === false) {
         this.router.navigate(['/']);
