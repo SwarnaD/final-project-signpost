@@ -32,6 +32,7 @@ export class GroupService {
   }
 
   getGroup(groupId) {
+  console.log('/api/groups/' + groupId);
     return this.http.get('/api/groups/' + groupId)
       .map((response: Response) => response.json());
   }

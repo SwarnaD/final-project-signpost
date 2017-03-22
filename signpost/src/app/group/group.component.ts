@@ -21,9 +21,13 @@ export class GroupComponent implements OnInit {
     this.route.params.subscribe(params => {
       this._id = params['id'];
     });
+	this.getGroup();
+	console.log(this.group);
+	document.getElementById('groupName').innerText =this.group;
   }
 
   getGroup() {
+  	console.log(this._id);
     this.groupService.getGroup(this._id).subscribe(group => {
       this.group = group;
     });
