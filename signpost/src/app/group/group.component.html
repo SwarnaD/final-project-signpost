@@ -1,11 +1,11 @@
-<h2 id = 'groupName'>Your Group (THIS IS NOT IMPLEMENTED)</h2>
+<h2>{{group.name}}</h2>
 <p> Here are your events:</p>
+<form>
+<label for="search">Search by Tags</label>
+<input type="text" [(ngModel)]="model.tags" name="name" required><br>
 
+</form>
 <p> What would you like to do?</p>
-<<<<<<< HEAD
-<option>Follow Group</option>
-=======
->>>>>>> c04482e2ba0b14caf698bc34ab3e06181322b823
 <p><a [routerLink]="['/createevent', _id]">Create an event</a>.</p>
 <p><a [routerLink]="['/']">View Groups</a>.</p>
 <p><a [routerLink]="['/group', _id, 'edit-group']">Edit Group</a>.</p>
