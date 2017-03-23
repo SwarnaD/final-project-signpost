@@ -35,7 +35,7 @@ export class ViewAllComponent implements OnInit {
 
   getAllEvents(){
     this.eventService.getAllEvents().subscribe(e => {
-      this.allGroups = e;
+      this.allEvents = e;
     });
   }
 
