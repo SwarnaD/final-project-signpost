@@ -15,7 +15,6 @@ router.route('/groups')
     group.description = req.body.description;
     group.campus = req.body.campus;
     group.admins.push(req.body.userid);
-
     var tags = req.body.tags.split(',');
     for (var i = tags.length - 1; i >= 0; i--) {
       group.tags.push(tags[i]);
@@ -38,6 +37,74 @@ router.route('/groups')
       res.json(groups);
     })
   });
+
+//Get by tags
+router.route('/groups/search/:tags')
+.post(function(req, res) {
+  //Idk what to do here yet
+})
+.get(function(req, res) {
+  var tagsToFind = req.params.tags.split(',');
+  Group.find({tags: {"$all":tagsToFind}},function(err, groups) {
+    if (err) {
+      // res.send(err);
+      res.json({ error: 'No groups match that criteria' });
+    }
+    res.json(groups);
+  });
+});
+
+//Get by ownership
+router.route('/groups/user/:id')
+  // adds user as an admin of a group
+  .post(function(req, res) {
+    //Idk what to do here yet
+
+  })
+  .put(function(req, res) {
+    Group.findById(req.body.groupid, function(err, group) {
+      if (err) res.json({ error: 'Could not retrieve group' });
+      group.admins.push(req.params.id);
+      group.save(function(err) {
+        if (err) res.json({ error: 'Could not save group' });
+        res.json({ message: 'User added to group admins list.'});
+      });
+    });
+  })
+  // retrieves groups belonging to id
+  .get(function(req, res) {
+    Group.find({ admins: req.params.id }, function(err, groups) {
+      if (err) res.json({ error: 'Could not retrieve groups' });
+      res.json(groups);
+    });
+  });
+
+//Get by follower
+router.route('/groups/follower/:id')
+  // adds user as an admin of a group
+  .post(function(req, res) {
+    //Idk what to do here yet
+
+  })
+  //ADD TO FOLLOWERS
+  .put(function(req, res) {
+    Group.findById(req.body.groupid, function(err, group) {
+      if (err) res.json({ error: 'Could not retrieve group' });
+      group.followers.push(req.params.id);
+      group.save(function(err) {
+        if (err) res.json({ error: 'Could not save group' });
+        res.json({ message: 'User added to group followers list.'});
+      });
+    });
+  })
+  // retrieves groups belonging to id
+  .get(function(req, res) {
+    Group.find({ followers: req.params.id }, function(err, groups) {
+      if (err) res.json({ error: 'Could not retrieve groups' });
+      res.json(groups);
+    });
+  });
+
 
 router.route('/groups/:id')
   .post(function(req, res) {
@@ -100,43 +167,5 @@ router.route('/groups/:id')
     });
 
 
-router.route('/groups/search/:tags')
-.post(function(req, res) {
-  //Idk what to do here yet
-})
-.get(function(req, res) {
-  var tagsToFind = req.params.tags.split(',');
-  Group.find({tags: {"$all":tagsToFind}},function(err, groups) {
-    if (err) {
-      // res.send(err);
-      res.json({ error: 'No groups match that criteria' });
-    }
-    res.json(groups);
-  });
-});
-
-router.route('/groups/user/:id')
-  // adds user as an admin of a group
-  .post(function(req, res) {
-    //Idk what to do here yet
-
-  })
-  .put(function(req, res) {
-    Group.findById(req.body.groupid, function(err, group) {
-      if (err) res.json({ error: 'Could not retrieve group' });
-      group.admins.push(req.params.id);
-      group.save(function(err) {
-        if (err) res.json({ error: 'Could not save group' });
-        res.json({ message: 'User added to group admins list.'});
-      });
-    });
-  })
-  // retrieves groups belonging to id
-  .get(function(req, res) {
-    Group.find({ admins: req.params.id }, function(err, groups) {
-      if (err) res.json({ error: 'Could not retrieve groups' });
-      res.json(groups);
-    });
-  });
 
 module.exports = router;
