@@ -88,7 +88,7 @@ router.route('/groups/follower/:id')
   })
   //ADD TO FOLLOWERS
   .put(function(req, res) {
-    Group.findById(req.body.groupid, function(err, group) {
+    Group.findById(req.body.groupId, function(err, group) {
       if (err) res.json({ error: 'Could not retrieve group' });
       group.followers.push(req.params.id);
       group.save(function(err) {
@@ -118,7 +118,7 @@ router.route('/groups/:id')
                 // res.send(err);
                 res.json({ error: 'Could not find group by id' });
             }
-            group.name = req.body.name;  
+            group.name = req.body.name;
             group.description = req.body.description;
             group.tags = [];
 

@@ -58,4 +58,19 @@ export class GroupService {
         }
       });
   }
+
+  followGroup(userId, groupId) {
+    var request = {
+      'groupId': groupId
+    }
+    return this.http.put('/api/groups/follower/' + userId, request)
+      .map((response: Response) => {
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+  }
 }
