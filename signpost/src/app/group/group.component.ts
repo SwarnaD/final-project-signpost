@@ -39,4 +39,16 @@ export class GroupComponent implements OnInit {
     });
   }
 
+  followGroup() {
+    var userId = (JSON.parse(localStorage.getItem('userSession')))._id;
+    this.groupService.followGroup(userId, this._id)
+      .subscribe(result => {
+        if (result === true) {
+          alert("You are now following " + this._id + "!");
+        } else {
+          alert("Something wenta wronga!");
+        }
+      });
+  }
+
 }
