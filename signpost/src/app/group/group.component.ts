@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
+import { EventService } from '../_services/event.service';
 import { Group } from '../_models/group';
 
 @Component({
@@ -13,12 +14,15 @@ export class GroupComponent implements OnInit {
   _id: String;
   group: any = [];
   groups: any = [];
+  events: any = [];
   following = false;
+  tags = "";
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private groupService: GroupService) {
+    private groupService: GroupService,
+    private eventService: EventService) {
   }
 
   ngOnInit() {
@@ -26,6 +30,13 @@ export class GroupComponent implements OnInit {
       this._id = params['id'];
     });
     this.getGroup();
+    this.getEvents();
+  }
+
+  getEvents() {
+    this.eventService.getEventsByGroupIdAndTags(this._id, this.tags).subscribe(events => {
+      this.events = events;
+    });
   }
 
   getGroup() {

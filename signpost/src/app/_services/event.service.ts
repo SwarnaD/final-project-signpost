@@ -38,4 +38,8 @@ export class EventService {
       .map((response: Response) => response.json());
   }
 
+  getEventsByGroupIdAndTags(groupId, tags) {
+    return this.http.get('/api/events/group/' + groupId + '/' + tags)
+      .map((response: Response) => response.json());
+  }
 }
