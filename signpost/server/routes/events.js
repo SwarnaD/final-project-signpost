@@ -15,6 +15,7 @@ router.route('/events')
     event.description = req.body.description;
     event.location = req.body.location;
     event.date = req.body.date; // For now create date for current time
+    event.campus = req.body.campus;
 
     var tags = req.body.tags.split(',');
     for (var i = tags.length - 1; i >= 0; i--) {

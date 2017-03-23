@@ -3,14 +3,16 @@
 <p>{{event.description}}</p>
 <h3>Location:</h3>
 <p>{{event.location}}</p>
-<h3>Date created:</h3>
-<p>{{event.date}}</p>
+<h3>Campus:</h3>
+<p>{{event.campus}}</p>
 <h3>Tags:</h3>
 <p>{{event.tags}}</p><br>
+<h3>Date planned:</h3>
+<p>{{event.date}}</p>
 
 <!-- <script type="text/javascript">getAllEvents();</script> -->
 <p> What would you like to do?</p>
 <p><a [routerLink]="['/createevent', this._id]">Create an event</a>.</p>
-<!-- <p><a [routerLink]="['/editevent', this._id]">Create an event</a>.</p> -->
+<p><a [routerLink]="['/event', _id, 'edit-event']">Edit Event</a>.</p>
 <p><a [routerLink]="['/..']">Back</a>.</p>
 <p><a [routerLink]="['/login']">Log out</a>.</p>

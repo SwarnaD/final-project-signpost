@@ -42,4 +42,24 @@ export class EventService {
     return this.http.get('/api/events/group/' + groupId + '/' + tags)
       .map((response: Response) => response.json());
   }
+
+  editEvent(name,description,location,campus,date,tags,groupId) {
+  var request = {
+    'name' : name,
+    'description' : description,
+    'location' : location,
+    'campus' : campus,
+    'date' : date,
+    'tags' : tags
+   }
+    return this.http.put('/api/events/' + groupId, request)
+      .map((response: Response) => {
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+  }
 }

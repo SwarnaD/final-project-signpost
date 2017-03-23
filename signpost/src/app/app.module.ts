@@ -22,6 +22,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { GroupComponent } from './group/group.component';
 import { EventComponent } from './event/event.component';
 import { EditGroupComponent } from './edit-group/edit-group.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 //import { EditEventComponent } from './edit-event/edit-event.component';
 
@@ -61,6 +62,10 @@ const ROUTES = [
     component: EditGroupComponent
   },
   {
+    path: 'event/:id/edit-event',
+    component: EditEventComponent
+  },
+  {
     path: 'viewall',
     component: ViewAllComponent
   }
@@ -77,6 +82,7 @@ const ROUTES = [
     CreateEventComponent,
     GroupComponent,
     EventComponent,
+    EditEventComponent,
     EditGroupComponent,
     ViewAllComponent
     //EditEventComponent
