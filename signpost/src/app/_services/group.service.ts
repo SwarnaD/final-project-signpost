@@ -51,4 +51,14 @@ export class GroupService {
     return this.http.put('/api/groups/' + groupId, request)
       .map((response: Response) => response.json());
   }
+  
+  getByTag(tags){
+    var request = {
+    'tags' : tags
+    }
+    console.log(tags);
+    return this.http.get('/api/groups/search/' + tags)
+      .map((response: Response) => response.json());
+  }
+  
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
-import { Group } from '../_models/group';
+
 
 @Component({
   selector: 'app-group',
@@ -13,6 +13,7 @@ export class GroupComponent implements OnInit {
   _id: String;
   group: any = [];
   groups: any = [];
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -38,5 +39,6 @@ export class GroupComponent implements OnInit {
       this.groups = groups;
     });
   }
+  
 
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
 import { User } from '../_models/user';
-
+import { Group } from '../_models/group';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   name: String;
   groups: any = [];
   allGroups: any = [];
-  
+  model: Group = { name: '', description: '', campus: '', tags: ''}
   constructor(
     private groupService: GroupService,
     private userService: UserService,
@@ -38,6 +38,12 @@ export class HomeComponent implements OnInit {
   getAllGroups(){
     this.groupService.getAllGroups().subscribe(g => {
       this.allGroups = g;
+    });
+  }
+    searchByTags(){
+    this.groupService.getByTag(this.model.tags).subscribe(g => {
+      this.allGroups = g;
+   
     });
   }
 
