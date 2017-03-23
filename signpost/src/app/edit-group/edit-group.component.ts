@@ -12,7 +12,7 @@ export class EditGroupComponent implements OnInit {
   error = '';
   _id: String;
   group: any = [];
-  model: Group ={name: '' ,description:'a',campus:'',tags:''}
+  model: Group ={name: '' ,description: '' ,campus:'',tags:''}
 
   
   constructor(
@@ -25,7 +25,7 @@ export class EditGroupComponent implements OnInit {
             this._id = params['id'];
       });
             this.getGroup();
-	    alert(this.group.name);
+	    console.log(this.group);
             this.model ={name: this.group.name ,description: this.group.description ,campus: this.group.campus,tags: this.group.tags }
 
 
