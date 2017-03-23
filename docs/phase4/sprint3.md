@@ -42,11 +42,6 @@ We will divide tasks up by features rather than components this week, to allevia
 * As an event coordinator, I want people to see details about my event, so that they are able to attend without further instruction.
 * Assignment: Joseph Lee/Frank Xie
 
-**Follow event**  
-* Points: 5
-* As a student, I want to be able to follow events so that I can be notified of any changes, and track which events I am interested in.
-* Assignment: Joseph Lee/Frank Xie
-
 **Campus specification**  
 * Points: 5
 * As a student at UTM who lives in downtown Toronto, I want to be able to find events at UTSG so that I can attend them without looking for flyers on the UTSG campus.
