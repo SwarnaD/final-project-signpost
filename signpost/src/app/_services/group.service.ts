@@ -31,6 +31,11 @@ export class GroupService {
       .map((response: Response) => response.json());
   }
 
+  getFollowedGroups(userID) {
+    return this.http.get('/api/groups/follower/' + userID)
+      .map((response: Response) => response.json());
+  }
+
   getGroup(groupId) {
     return this.http.get('/api/groups/' + groupId)
       .map((response: Response) => response.json());

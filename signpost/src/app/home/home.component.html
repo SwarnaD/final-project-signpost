@@ -5,6 +5,11 @@
   <li><a [routerLink]="['/group', group._id]">{{ group.name }}</a></li>
 </ul>
 
+<p> Here are the groups you are following:</p>
+<ul *ngFor='let f of followedGroups'>
+  <li><a [routerLink]="['/group', f._id]">{{ f.name }}</a></li>
+</ul>
+
 <p>ALL GROUPS</p>
 
 <ul *ngFor='let g of allGroups'>
