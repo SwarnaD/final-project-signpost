@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Event } from '../_models/event';
 import { EventService } from '../_services/event.service';
 @Component({
@@ -8,23 +9,26 @@ import { EventService } from '../_services/event.service';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-  model: Event = { name: '', description: '', location: '', campus: '', tags: ''}
+  model: Event = { name: '', description: '', location: '', campus: '', tags: '', date: ''}
   error = '';
   _id: String;
 
   constructor(
     private eventService: EventService,
+    private route: ActivatedRoute,
     private router: Router) {
   }
 
   ngOnInit() {
-    let currentUser = JSON.parse(localStorage.getItem('userSession'));
-    this._id = currentUser._id;
+    this.route.params.subscribe(params => {
+      this._id = params['id'];
+    });
   }
 
   createEvent() {
-    this.eventService.addEvent(this._id, this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags).subscribe(result => {
-      if (result === false) {
+    console.log(this._id);
+    this.eventService.addEvent(this._id, this.model.name, this.model.description, this.model.location, this.model.campus, this.model.tags, this.model.date).subscribe(result => {
+      if (result === true) {
         this.router.navigate(['/']);
       } else {
         this.error = 'invalid event name, already exists';

@@ -2,16 +2,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
 var eventSchema = new Schema({
+  groupId: String,
   name: String,
   description: String,
   location: String,
-  groupId: String,
-  eventAdmins: [String], // Users administrating events
   campus: String,
   // eventHosts: [String], // Groups hosting event
   // repeat: Boolean, // Event occurs monthly, weekly, daily, etc
   tags: [String],
-  date: Date
+  eventAdmins: [String], // Users administrating events
+  date: String
 })
 
 //New function to find by name

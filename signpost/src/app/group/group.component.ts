@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class GroupComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private userService: UserService,
     private groupService: GroupService) {
   }
 
@@ -21,9 +23,11 @@ export class GroupComponent implements OnInit {
     this.route.params.subscribe(params => {
       this._id = params['id'];
     });
+    this.getGroup();
   }
 
   getGroup() {
+  	console.log(this._id);
     this.groupService.getGroup(this._id).subscribe(group => {
       this.group = group;
     });
@@ -33,5 +37,5 @@ export class GroupComponent implements OnInit {
       this.groups = groups;
     });
   }
-  
+
 }

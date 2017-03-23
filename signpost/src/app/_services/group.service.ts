@@ -41,4 +41,14 @@ export class GroupService {
       .map((response: Response) => response.json());
   }
 
+  editGroup(name,description,campus,tags,groupId) {
+  var request = {
+	  'name' : name,
+	  'description' : description,
+	  'campus' : campus,
+	  'tags' : tags
+   }
+    return this.http.put('/api/groups/' + groupId, request)
+      .map((response: Response) => response.json());
+  }
 }

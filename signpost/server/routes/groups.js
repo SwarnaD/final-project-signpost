@@ -11,7 +11,7 @@ router.route('/groups')
     } else {
       res.json({ error: 'A group needs a name' });
     }
-    
+
     group.description = req.body.description;
     group.campus = req.body.campus;
     group.admins.push(req.body.userid);
