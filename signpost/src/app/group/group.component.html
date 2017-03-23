@@ -2,7 +2,7 @@
 <p> Here are your events:</p>
 <form>
 <label for="search">Search by Tags</label>
-<input type="text" [(ngModel)]="tags" name="search" required><br>
+<input type="text" [(ngModel)]="tags" name="search"><br>
 <button type="submit" (click)="getEvents()">Filter</button>
 </form>
 <ul *ngFor='let event of events'>
