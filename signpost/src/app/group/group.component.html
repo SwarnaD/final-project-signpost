@@ -6,3 +6,10 @@
 <p><a [routerLink]="['/']">View Groups</a>.</p>
 <p><a [routerLink]="['/group', _id, 'edit-group']">Edit Group</a>.</p>
 <p><a [routerLink]="['/login']">Log out</a>.</p>
+
+<div *ngIf="following">
+  You are following this group! Yay!
+</div>
+<div *ngIf="!following">
+  <button (click)="followGroup()">Follow this group!</button>
+</div>

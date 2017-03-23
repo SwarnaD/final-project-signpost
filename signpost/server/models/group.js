@@ -8,7 +8,8 @@ var groupSchema = new Schema({
   tags: [String],
   admins: [String], // Moderators of the group
   campus: String,
-  events: [String]
+  events: [String],
+  followers: [String]
 })
 
 //New function to find by name

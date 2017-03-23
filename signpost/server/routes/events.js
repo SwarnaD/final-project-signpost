@@ -28,7 +28,7 @@ router.route('/events')
     	if (err) res.json({ error: 'Could not find group by id.'});
       console.log(group.name);
 
-    	group.events.push(event.name);
+    	group.events.push(event._id);
     	group.save(function(err) {
       if (err) {
         // res.send(err);

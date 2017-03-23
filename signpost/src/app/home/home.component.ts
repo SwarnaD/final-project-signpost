@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   name: String;
   groups: any = [];
   allGroups: any = [];
+
   model: Group = { name: '', description: '', campus: '', tags: ''}
+
+  followedGroups: any = [];
+
   constructor(
     private groupService: GroupService,
     private userService: UserService,
@@ -28,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.name = this.currentUser.name;
     this.getGroups();
     this.getAllGroups();
+    this.getFollowedGroups();
   }
 
   getGroups() {
@@ -44,6 +49,12 @@ export class HomeComponent implements OnInit {
     this.groupService.getByTag(this.model.tags).subscribe(g => {
       this.allGroups = g;
    
+    });
+  }
+
+  getFollowedGroups() {
+    this.groupService.getFollowedGroups(this._id).subscribe(fg => {
+      this.followedGroups = fg;
     });
   }
 

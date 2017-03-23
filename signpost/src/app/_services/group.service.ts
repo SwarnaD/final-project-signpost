@@ -31,6 +31,11 @@ export class GroupService {
       .map((response: Response) => response.json());
   }
 
+  getFollowedGroups(userID) {
+    return this.http.get('/api/groups/follower/' + userID)
+      .map((response: Response) => response.json());
+  }
+
   getGroup(groupId) {
     return this.http.get('/api/groups/' + groupId)
       .map((response: Response) => response.json());
@@ -49,7 +54,29 @@ export class GroupService {
 	  'tags' : tags
    }
     return this.http.put('/api/groups/' + groupId, request)
-      .map((response: Response) => response.json());
+      .map((response: Response) => {
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+  }
+
+  followGroup(userId, groupId) {
+    var request = {
+      'groupId': groupId
+    }
+    return this.http.put('/api/groups/follower/' + userId, request)
+      .map((response: Response) => {
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
+        }
+      });
   }
   
   getByTag(tags){
