@@ -19,6 +19,10 @@ eventSchema.static('findByName', function (name, callback) {
   return this.find({ name: name }, callback);
 });
 
+eventSchema.static('findByGroup', function (groupId, callback) {
+  return this.find({ groupId: groupId }, callback);
+});
+
 var Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;

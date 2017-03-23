@@ -51,6 +51,21 @@ router.route('/events')
     })
   });
 
+router.route('/events/group/:groupId')
+  .post(function(req, res) {
+    //Idk what to do here yet
+
+  })
+  .get(function(req, res) {
+    Event.find({ groupId: req.params.groupId },function(err, events) {
+      if (err) {
+        // res.send(err);
+        res.json({ error: 'No events match that criteria' });
+      }
+      res.json(events);
+    });
+  });
+
 router.route('/events/:id')
   .post(function(req, res) {
     //Idk what to do here yet
@@ -97,7 +112,7 @@ router.route('/events/:id')
 
   })
   .get(function(req, res) {
-    Event.findById(req.body.groupId, function(err, event) {
+    Event.findById(req.params.id, function(err, event) {
             if (err){
               // res.send(err);
               res.json({ error: 'Couldn\'t find event by id' });
@@ -136,6 +151,10 @@ router.route('/events/:id')
       res.json(events);
     });
   });
+
+  
+
+
 
 
 module.exports = router;
