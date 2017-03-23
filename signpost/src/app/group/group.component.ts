@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
+import { Group } from '../_models/group';
 
 @Component({
   selector: 'app-group',
