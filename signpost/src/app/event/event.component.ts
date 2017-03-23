@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { GroupService } from '../_services/group.service';
 import { EventService } from '../_services/event.service';
+import { Event } from '../_models/event';
+
 
 @Component({
   selector: 'app-event',
@@ -25,6 +27,7 @@ export class EventComponent implements OnInit {
     this.route.params.subscribe(params => {
       this._id = params['id'];
     });
+    this.getEvent();
   }
 
   getEvent() {
