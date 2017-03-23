@@ -140,13 +140,13 @@ router.route('/events/:id')
         });
     });
 
-  router.route('/events/:groupId/:tags')
+  router.route('/events/group/:groupId/:tags')
   .post(function(req, res) {
     //Idk what to do here yet
 
   })
   .get(function(req, res) {
-  	var tagsToFind = req.params.tags.split(',');
+    var tagsToFind = req.params.tags.split(',');
   	Event.find({groupId: req.params.groupId, tags: {"$all":tagsToFind}},function(err, events) {
       if (err) {
         // res.send(err);
@@ -156,7 +156,7 @@ router.route('/events/:id')
     });
   });
 
-  
+
 
 
 

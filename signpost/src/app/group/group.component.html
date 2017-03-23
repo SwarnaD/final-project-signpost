@@ -1,6 +1,15 @@
 <h2>{{group.name}}</h2>
 <p> Here are your events:</p>
 
+<form>
+<label for="search">Search by Tags</label>
+<input type="text" [(ngModel)]="tags" name="search" required><br>
+<button type="submit" (click)="getEvents()">Filter</button>
+</form>
+<ul *ngFor='let event of events'>
+  <li>{{event.name}}</li>
+</ul>
+
 <p> What would you like to do?</p>
 <p><a [routerLink]="['/createevent', _id]">Create an event</a>.</p>
 <p><a [routerLink]="['/']">View Groups</a>.</p>
