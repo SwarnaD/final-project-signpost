@@ -14,7 +14,7 @@ export class EditGroupComponent implements OnInit {
   group: any = [];
   model: Group ={name: '' ,description: '' ,campus:'',tags:''}
 
-  
+
   constructor(
       private route: ActivatedRoute,
       private groupService: GroupService) {
@@ -24,19 +24,17 @@ export class EditGroupComponent implements OnInit {
       this.route.params.subscribe(params => {
             this._id = params['id'];
       });
-            this.getGroup();
-	    console.log(this.group);
-            this.model ={name: this.group.name ,description: this.group.description ,campus: this.group.campus,tags: this.group.tags }
-
-
-
+      this.getGroup();
   }
+
   getGroup() {
-  	console.log(this._id);
     this.groupService.getGroup(this._id).subscribe(group => {
       this.group = group;
+      this.model = {name: this.group.name, description: this.group.description, campus: this.group.campus, tags: this.group.tags }
+      console.log(this.model);
     });
   }
+
   /*editGroup() {
       this.groupService.editGroup(this._id, this.model.name, this.model.description, this.model.campus, this.model.tags).subscribe(result => {
       if (result === true) {
