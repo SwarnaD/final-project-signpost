@@ -8,7 +8,7 @@
 <p>ALL GROUPS</p>
 
 <ul *ngFor='let g of allGroups'>
-  <li><a [routerLink]="['/group', g.id]">{{ g.name }}</a></li>
+  <li><a [routerLink]="['/group', g._id]">{{ g.name }}</a></li>
 </ul>
 
 <p>What would you like to do?</p>

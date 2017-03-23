@@ -11,20 +11,23 @@ router.route('/events')
     } else {
       res.json({ error: 'An event needs a name' });
     }
+
     event.description = req.body.description;
     event.location = req.body.location;
-    event.date = Date(); // For now create date for current time
-    event.eventAdmins.push(req.body.eventAdmins);
+    event.date = req.body.date; // For now create date for current time
+
     var tags = req.body.tags.split(',');
     for (var i = tags.length - 1; i >= 0; i--) {
     	event.tags.push(tags[i]);
     }
 
     // add the event to the group's even list
-    event.groupId =req.body.groupId;
+    event.groupId = req.body.groupId;
+    console.log(event.groupId);
     Group.findById(req.body.groupId, function(err, group) {
     	if (err) res.json({ error: 'Could not find group by id.'});
-    	group.event.push(event._id);
+      event.eventAdmins.push(group.name);
+    	group.events.push(event.name);
     	group.save(function(err) {
       if (err) {
         // res.send(err);

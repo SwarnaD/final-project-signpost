@@ -9,6 +9,8 @@
     <input type ="text" [(ngModel)] = "model.campus" name = 'campus' required><br>
     <label for="name">Tags(Seperate tags with a comma, no spaces)</label>
     <input type ="text" [(ngModel)] = "model.tags" name = 'tags' required><br>
+    <label for="name">Date</label>
+    <input type ="text" [(ngModel)] = "model.date" name = 'date' required><br>
     <button type="submit" class="btn btn-success" (click)="createEvent()">Create</button>
 </form>
 <a [routerLink]="['/']">Back</a>.
