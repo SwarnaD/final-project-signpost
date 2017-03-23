@@ -22,6 +22,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { GroupComponent } from './group/group.component';
 import { EventComponent } from './event/event.component';
 import { EditGroupComponent } from './edit-group/edit-group.component';
+import { ViewAllComponent } from './view-all/view-all.component';
 //import { EditEventComponent } from './edit-event/edit-event.component';
 
 // this is a very ghetto way to do this, sorry
@@ -58,6 +59,10 @@ const ROUTES = [
   {
     path: 'group/:id/edit-group',
     component: EditGroupComponent
+  },
+  {
+    path: 'viewall',
+    component: ViewAllComponent
   }
 ];
 
@@ -72,7 +77,8 @@ const ROUTES = [
     CreateEventComponent,
     GroupComponent,
     EventComponent,
-    EditGroupComponent
+    EditGroupComponent,
+    ViewAllComponent
     //EditEventComponent
   ],
   imports: [

@@ -1,0 +1,17 @@
+<h1>Welcome to Signpost</h1>
+<p>Hello, {{ name }}.</p>
+<p>Here are your groups:</p>
+<ul *ngFor='let group of groups'>
+  <li><a [routerLink]="['/group', group._id]">{{ group.name }}</a></li>
+</ul>
+
+<p>ALL GROUPS</p>
+
+<ul *ngFor='let g of allGroups'>
+  <li><a [routerLink]="['/group', g._id]">{{ g.name }}</a></li>
+</ul>
+
+<p>What would you like to do?</p>
+<p><a [routerLink]="['/creategroup']">Create a group</a>.</p>
+<p><a [routerLink]="['..']">Back</a>.</p>
+<p><a [routerLink]="['/login']">Log out</a>.</p>
