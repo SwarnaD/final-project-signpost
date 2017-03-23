@@ -32,7 +32,6 @@ export class GroupService {
   }
 
   getGroup(groupId) {
-  console.log('/api/groups/' + groupId);
     return this.http.get('/api/groups/' + groupId)
       .map((response: Response) => response.json());
   }
@@ -42,13 +41,13 @@ export class GroupService {
       .map((response: Response) => response.json());
   }
 
-  editGroup(name,description,campus,tags,groupId): Observable<Boolean> {
-    var request = {
-	'name': name,
-	'description': description,
-	'campus': campus,
-	'tags': tags
-    }
+  editGroup(name,description,campus,tags,groupId) {
+  var request = {
+	  'name' : name,
+	  'description' : description,
+	  'campus' : campus,
+	  'tags' : tags
+   }
     return this.http.put('/api/groups/' + groupId, request)
       .map((response: Response) => response.json());
   }

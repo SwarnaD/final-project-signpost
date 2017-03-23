@@ -16,6 +16,7 @@ export class EditGroupComponent implements OnInit {
 
 
   constructor(
+      private router: Router,
       private route: ActivatedRoute,
       private groupService: GroupService) {
         }
@@ -35,13 +36,13 @@ export class EditGroupComponent implements OnInit {
     });
   }
 
-  /*editGroup() {
-      this.groupService.editGroup(this._id, this.model.name, this.model.description, this.model.campus, this.model.tags).subscribe(result => {
+  editGroup() {
+      this.groupService.editGroup(this.model.name, this.model.description, this.model.campus, this.model.tags,this._id).subscribe(result => {
       if (result === true) {
-          this.router.navigate([/]);
+          this.router.navigate(['/']);
       } else {
           this.error = 'invalid edit';
       }
    });
-   }*/
+   }
 }
