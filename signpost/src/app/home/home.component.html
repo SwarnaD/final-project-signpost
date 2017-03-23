@@ -10,21 +10,21 @@
   <li><a [routerLink]="['/group', f._id]">{{ f.name }}</a></li>
 </ul>
 
+<form>
+<label for="search">Search by Tags</label>
+<input type="text" [(ngModel)]="model.tags" name="tags" required><br>
+<button type="submit" class="btn btn-success" (click)="searchByTags()">Search</button>
+</form>
+
 <p>ALL GROUPS</p>
 
 <ul *ngFor='let g of allGroups'>
   <li><a [routerLink]="['/group', g._id]">{{ g.name }}</a></li>
 </ul>
 
+
 <p>What would you like to do?</p>
-<form>
-<label for="search">Search by Tags</label>
-<input type="text" [(ngModel)]="model.tags" name="tags" required><br>
-<button type="submit" class="btn btn-success" (click)="searchByTags()">Search</button>
-</form>
-=======
 <p><a [routerLink]="['/viewall']">View all events</a>.</p>
->>>>>>> origin/master
 <p><a [routerLink]="['/creategroup']">Create a group</a>.</p>
 <p><a [routerLink]="['/login']">Log out</a>.</p>
 <p><a [routerLink]="['/viewall']">View all events</a>.</p>
