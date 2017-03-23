@@ -49,6 +49,13 @@ export class GroupService {
 	  'tags' : tags
    }
     return this.http.put('/api/groups/' + groupId, request)
-      .map((response: Response) => response.json());
+      .map((response: Response) => {
+        let success = response.json() && response.json().message;
+        if (success) {
+          return true;
+        } else {
+          return false;
+        }
+      });
   }
 }
