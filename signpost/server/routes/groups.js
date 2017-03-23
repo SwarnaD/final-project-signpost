@@ -79,7 +79,7 @@ router.route('/groups/user/:id')
     });
   });
 
-//Get by follower
+//Get by follower id is userid
 router.route('/groups/follower/:id')
   // adds user as an admin of a group
   .post(function(req, res) {
