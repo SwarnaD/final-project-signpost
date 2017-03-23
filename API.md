@@ -143,3 +143,46 @@
 
   TAGS should be in the form "tag1,tag2,tag3"
   
+  **Events GET by groupID**
+----
+  _Get all event created by a specific group_
+
+* **URL**
+
+  _/api/events/:groupId/_
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   `groupId=STRING`
+
+* **Success Response:**
+  * **Code:** 200 <br />
+    **Content:** `[
+  {
+    "_id": "58d04d77a8627214b75b40c3",
+    "groupId": "58cff5694041cc3ace06425c",
+    "date": "2017-03-20T21:45:27.000Z",
+    "location": "domrwhrt",
+    "description": "There is no deck",
+    "name": "Test",
+    "__v": 0,
+    "tags": [
+      "friendly",
+      "fun"
+    ],
+    "eventAdmins": [
+      null
+    ]
+  }
+]`
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "message" }`
+
+  
