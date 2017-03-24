@@ -29,9 +29,9 @@ Priority: 5
 
 Size: 5
 #### Story Narrative
-As an administrating member of a group that wants to increase its social media presence, I want to create a profile for the group that I and other administrating members can manage.
+As an administrating member of a group that wants to increase its social media presence, I want to create a profile for the group that I and can manage.
 #### Acceptance Criteria
-Administrating members of a group should be able to create a page for the group that lists the group's primary tags (topics), as well as invite other members to help manage the page.
+Administrating members of a group should be able to create a page for the group that lists the group's primary tags (topics).
 
 ### Alexa Jeong
 ======
