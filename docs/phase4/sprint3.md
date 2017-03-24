@@ -20,7 +20,6 @@ We will divide tasks up by features rather than components this week, to allevia
 * Event details
 * Follow event
 * Campus specification
-* Add other admins to a group
 * Follow group
 
 ## Sprint backlog
@@ -38,19 +37,14 @@ We will divide tasks up by features rather than components this week, to allevia
 * Assignment: Adam Lee (+ Justin Mao if Adam needs help)
 
 **Event details**  
-* Points: 5
+* Points: 3
 * As an event coordinator, I want people to see details about my event, so that they are able to attend without further instruction.
 * Assignment: Joseph Lee/Frank Xie
 
 **Campus specification**  
-* Points: 5
+* Points: 2
 * As a student at UTM who lives in downtown Toronto, I want to be able to find events at UTSG so that I can attend them without looking for flyers on the UTSG campus.
 * Assignment: Joseph Lee
-
-**Add other admins to a group**  
-* Points: 5
-* As an administrating member of a group that wants to increase its social media presence, I want to create a profile for the group that I and other administrating members can manage.
-* Assignment: Justin Mao
 
 **Follow group**  
 * Points: 5
