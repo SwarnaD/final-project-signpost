@@ -1,10 +1,14 @@
 # System Design
 
 ## Table of Contents
-1. [CRC Cards](#crc-cards)
-2. [System-Environment Interaction](#system-environment-interaction)
-3. [System Architecture](#system-architecture)
-4. [System Decomposition](#system-decomposition)
+1. [Notes](#notes)
+2. [CRC Cards](#crc-cards)
+3. [System-Environment Interaction](#system-environment-interaction)
+4. [System Architecture](#system-architecture)
+5. [System Decomposition](#system-decomposition)
+
+## Notes
+We made no changes to this document this week. We feel that the CRC cards and system design/architecture from last week are accurate.
 
 ## CRC Cards
 
