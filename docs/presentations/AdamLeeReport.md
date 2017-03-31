@@ -3,6 +3,7 @@
 My most significant contribution would be my work on the backend involving management of the database as well as making the API (including documentation).
  
  * Tell us about a new technical concept/issue that you learned while working on the project.
+ 
 A technical concept I learned was how the front end and back end of a website communicates using a fullstack such as MEAN.  I have never used a fullstack before so it was quite intriguing working it out.
  
  * What is your main strength(s) as a team member?
